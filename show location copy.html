@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Would your like to share your location? </p>
+
+<button onclick="getLocation()">Yeah ! Of course!</button>
+<button onclick="refusetoshare()">No thanks.</button>
+
+<p id="demo"></p>
+<div id="showPosition" style="top:200px;left:100px;">I am a div element.</div>
+
+<script>
+var x = document.getElementById("demo");
+var posi = document.getElementById("showPosition");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function refusetoshare(){
+	alert("SORRY!PARKING WON'T BE AVAILABLE!");
+	
+
+
+}
+
+function showPosition(position) {
+	var latitude = parseFloat(position.coords.latitude).toFixed(8);
+	var longitude = parseFloat(position.coords.longitude).toFixed(8);
+	posi.style.position = "relative";
+	//x.style.left = x_pos+'px';
+	//x.style.top = y_pos+'px';
+	posi.innerHTML = "Latitude: " + latitude + 
+    "<br>Longitude: " + longitude;
+
+    //elem.style.position = posVal;
+    /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;*/
+}
+</script>
+
+</body>
+</html>
