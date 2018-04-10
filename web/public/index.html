@@ -21,10 +21,23 @@
 			text-align: center;
 		}
 		#map {
+			float: left;
 			width: 80%;
 			height: 400px;
 			background-color: grey;
 		}
+
+		.table th, td{
+			float: right;
+			border: .5px solid black;
+	  	  	border-collapse: collapse;
+		}
+
+th, td {
+    padding: 2px;
+    text-align: left;
+    font-size: 7px;
+}
 
     </style>
 </head>
@@ -34,22 +47,37 @@
 	<div class="topnav">
 		<a class="active" href="#home">Home</a>
 		<a href="#userInput">Contribute</a>
+		<a href="inputRank">Contribution Ranking</a>
 		<a href="#about">About</a>
 	</div>
 
 	<h3>Avaiable Spot</h3>
-	<div id="map"></div>
-	<script>
-		function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 13,
-				center: {lat: 40.425, lng: -86.929};
-			});
-		}
-	</script>
-	<script async defer 
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
-	</script>
+	<div class="root">
+		<div id="map"></div>
+		<script>
+			function initMap() {
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 13,
+					center: {lat: 40.425, lng: -86.929};
+				});
+			}
+		</script>
+		<script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
+		</script>
+
+		<div id="table">
+			<h2>Spots Summary</h2>
+			<table class="Spots">
+				<tr>
+					<th>Location</th>
+					<th>Updated Time</th>
+				</tr>
+			</table>
+		</div>
+		<div class="clear"></div>
+	</div>
+
 
 </body>
 </html>
