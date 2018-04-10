@@ -7,7 +7,8 @@
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
         <script>
           // Initialize Firebase
-          var config = {
+          var config = 
+          {
             apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
             authDomain: "spotter-6ba86.firebaseapp.com",
             databaseURL: "https://spotter-6ba86.firebaseio.com",
@@ -19,23 +20,31 @@
           var database = firebase.database();
         </script>
         
+        <script>
+            function getData(id, path)
+            {
+                firebase.database().ref(path).once('value').then(
+                    function(snapshot)
+                    {
+                         document.getElementById(id).innerHTML += (snapshot.val()); 
+                    }
+                )
+            }
+        </script>
     </head>
     <body>
 
         <h1>Test</h1>
-        <h1 id = "lat">Latitude = <script>firebase.database().ref('/1/Coordinates/Longitude').once('value').then(
-            function(snapshot) 
-            {
-                document.getElementById("lat").innerHTML += (snapshot.val());
-//                window.alert(snapshot.val());
-//                var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-                // ...
-            }
-        );</script> <h1>
-        
-        
-        
-        
+        <h1 id = "lat">Latitude = 
+            <script>
+                getData('lat', '/1/Coordinates/Latitude');
+            </script> 
+        </h1>
+        <h1 id = "long">Longitude = 
+            <script> 
+                getData('long', '/1/Coordinates/Longitude');
+            </script> 
+        </h1>
 
     </body>
 </html>
