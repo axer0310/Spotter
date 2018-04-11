@@ -22,6 +22,11 @@ git push
 echo "=====Finished pushing to GitHub Arthur Branch====="
 
 
+echo
+echo
+echo
+
+
 
 echo "=====Firebase Deploying====="
 
