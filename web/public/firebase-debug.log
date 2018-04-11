@@ -1,0 +1,35 @@
+[debug] [2018-04-11T01:27:20.887Z] ----------------------------------------------------------------------
+[debug] [2018-04-11T01:27:20.890Z] Command:       c:\Program Files\nodejs\node.exe c:\Users\hexu1\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-04-11T01:27:20.890Z] CLI Version:   3.18.2
+[debug] [2018-04-11T01:27:20.890Z] Platform:      win32
+[debug] [2018-04-11T01:27:20.890Z] Node Version:  v8.11.1
+[debug] [2018-04-11T01:27:20.891Z] Time:          Tue Apr 10 2018 21:27:20 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-11T01:27:20.891Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-11T01:27:20.915Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-11T01:27:20.916Z] > authorizing via signed-in user
+[debug] [2018-04-11T01:27:20.920Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-11T01:27:20.921Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/FaTxtkeV_ec0UucgWy6L72kapABsM9Zpv3T-0EjG5-S3vPW3wYi27eI0lGVboyYR',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Apr 10 2018 21:27:20 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-11T01:27:21.106Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-11T01:27:21.119Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotter-6ba86  
+  
+ Tue Apr 10 2018 21:27:21 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-11T01:27:21.433Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-11T01:27:21.435Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotter-6ba86/tokens  
+  
+ Tue Apr 10 2018 21:27:21 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-11T01:27:21.722Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'spotter-6ba86'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-04-11T01:27:21.933Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/spotter-6ba86/uploads/-L9mJ6om3KHS-7dhNl9D?fileCount=3&message=  
+  
+ Tue Apr 10 2018 21:27:21 GMT-0400 (Cuba Daylight Time)
