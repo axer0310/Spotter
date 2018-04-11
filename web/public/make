@@ -9,7 +9,7 @@ echo
 echo "=====Commiting file to git====="
 filenames=$( git log --oneline --pretty="format:" --name-only master.. | awk 'NF' | sort -u )
 #echo $filenames
-git commit -m "$filenames"
+git commit -m "Modified files : \n$filenames"
 echo "=====Finished commiting file to git====="
 
 echo
