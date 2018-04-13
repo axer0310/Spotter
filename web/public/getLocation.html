@@ -98,9 +98,24 @@
             }
         </style>
         
-        
-         <script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+        <script>
+            
+            var config = 
+              {
+                apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+                authDomain: "spotter-6ba86.firebaseapp.com",
+                databaseURL: "https://spotter-6ba86.firebaseio.com",
+                projectId: "spotter-6ba86",
+                storageBucket: "spotter-6ba86.appspot.com",
+                messagingSenderId: "242336049467"
+              };
+            var database = firebase.database();
             var x = document.getElementById("demo");
+            firebase.initializeApp(config);
+            
             function getLocation()
             { 
                 if (navigator.geolocation)
@@ -120,19 +135,37 @@
             {
                 var latitude = parseFloat(position.coords.latitude).toFixed(8);
                 var longitude = parseFloat(position.coords.longitude).toFixed(8);
+                
+                var date = new Date();
+                var n = date.getTime();
+                var uploadTime = n.toString();
                 //x.style.position = "center";
                 //x.style.left = x_pos+'px';
                 //x.style.top = y_pos+'px';
                 x.innerHTML = "Latitude: " + latitude + 
                 "<br>Longitude: " + longitude;
+                setLocation(latitude,longitude,uploadTime);
                 //elem.style.position = posVal;
                 /*x.innerHTML = "Latitude: " + position.coords.latitude + 
                 "<br>Longitude: " + position.coords.longitude;*/
             }
-            function setLocation()
-             {
-                 
-             }
+            function setLocation(latitude, longitude, uploadTime)
+            {
+                firebase.database().ref('/' + generateID()).set(
+                    {
+                        Latitude: latitude,
+                        Longitude: longitude,
+                        UploadTime: uploadTime
+                    }
+                );
+            }
+            
+            function generateID()
+            {
+                // Function coming from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+                return Math.random().toString(36).replace(/[^a-z]+/g, '') 
+            }
+            
         </script>
         
     </head>
