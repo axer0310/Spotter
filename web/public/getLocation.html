@@ -102,7 +102,6 @@
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
         <script>
-            
             var config = 
               {
                 apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
@@ -112,9 +111,11 @@
                 storageBucket: "spotter-6ba86.appspot.com",
                 messagingSenderId: "242336049467"
               };
-            var database = firebase.database();
-            var x = document.getElementById("demo");
             firebase.initializeApp(config);
+//            var database = firebase.database();
+            var x = document.getElementById("demo");
+            
+            
             
             function getLocation()
             { 
