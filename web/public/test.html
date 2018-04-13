@@ -54,6 +54,16 @@
                     }
                 );
             }
+            function setData(longitude, latitude, time)
+            {
+                firebase.database().ref('/3').set(
+                    {
+                        Latitude: latitude,
+                        Longitude: longitude,
+                        UploadTime: time
+                    }
+                );
+            }
                 
             function alertAllData()
             {
@@ -94,6 +104,7 @@
             </script> 
         </h1>
         <h1 onclick="alertAllData();">onmouseover</h1>
+        <button onclick="setData(48.93,60.87,'2018:04:13:18:06:48')"></button>
     </body>
 </html>
         
