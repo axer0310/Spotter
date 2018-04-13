@@ -112,7 +112,34 @@
                 messagingSenderId: "242336049467"
               };
             firebase.initializeApp(config);
-//            var database = firebase.database();
+            var database = firebase.database();
+        </script>
+    </head>
+
+    <body>
+
+        <h1>Let's Park!</h1>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="#">Contribute</a></li>
+            <li><a href="inputRank">Contribution Ranking</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        
+        <div class="side">
+            <p></p>
+        </div>
+
+        <div class="column middle">
+            <h2>Have you spotted a space? </h2>
+            <button class=buttonyes onclick="getLocation()">Yeah !</button>
+            <button class=buttonno onclick="refusetoshare()">Not yet.</button>
+        </div>
+        <p id="demo"></p>
+
+    </body>
+    <script>
             var x = document.getElementById("demo");
             
             
@@ -168,30 +195,4 @@
             }
             
         </script>
-        
-    </head>
-
-    <body>
-
-        <h1>Let's Park!</h1>
-
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a class="active" href="#">Contribute</a></li>
-            <li><a href="inputRank">Contribution Ranking</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-        
-        <div class="side">
-            <p></p>
-        </div>
-
-        <div class="column middle">
-            <h2>Have you spotted a space? </h2>
-            <button class=buttonyes onclick="getLocation()">Yeah !</button>
-            <button class=buttonno onclick="refusetoshare()">Not yet.</button>
-        </div>
-        <p id="demo"></p>
-
-    </body>
 </html>
