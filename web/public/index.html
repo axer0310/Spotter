@@ -159,6 +159,7 @@
         function closing()
         {
             console.log("closing");
+            firebase.app().delete()
             clearTimeout(timer);
         }
     </script>
