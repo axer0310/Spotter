@@ -81,8 +81,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
     
     <script>
-        var config = 
-          {
+        var config = {
             apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
             authDomain: "spotter-6ba86.firebaseapp.com",
             databaseURL: "https://spotter-6ba86.firebaseio.com",
@@ -117,9 +116,7 @@
             });    
             }
         }
-		
-		
-        
+
         function getData(id, path)
         {
               firebase.database().ref(path).once('value').then(
