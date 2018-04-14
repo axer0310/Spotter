@@ -161,7 +161,7 @@
     </script>
 </head>
 <body>
-    <script>addAnnotation();</script>
+    
 	<h1>Let's Park!</h1>
 	
 	<ul>
@@ -174,7 +174,7 @@
 	<h3>Avaiable Spot</h3>
 	<div id="map"></div>
 	
-	<div id="destination">
+	<div id="destination" onload="addAnnotation();">
 		<p class="ex1">Where are you going?</p>
 		<p class="ex2">example: "lawson"</p>
 		<input type="search" name="destination">
