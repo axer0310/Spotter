@@ -75,6 +75,59 @@
 		}
 
     </style>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+    <script>
+        var config = 
+          {
+            apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+            authDomain: "spotter-6ba86.firebaseapp.com",
+            databaseURL: "https://spotter-6ba86.firebaseio.com",
+            projectId: "spotter-6ba86",
+            storageBucket: "spotter-6ba86.appspot.com",
+            messagingSenderId: "242336049467"
+          };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+        var data = {};
+        function getData(id, path)
+        {
+              firebase.database().ref(path).once('value').then(
+                    function(snapshot)
+                    {
+                         document.getElementById(id).innerHTML += (snapshot.val()); 
+                    }
+                );
+        }
+        function getAllData()
+        {
+            firebase.database().ref('/').once('value', 
+                function(snapshot) 
+                {
+                    snapshot.forEach(
+                        function(childSnapshot) 
+                        {
+                            var record = childSnapshot.key
+                            var buff = {};
+                            childSnapshot.forEach(
+                                function(childSnapshot)
+                                {
+                                    var key = childSnapshot.key;
+                                    var val = childSnapshot.val();
+                                    buff[key] = val;
+    //                                        window.alert(key + ' : ' + val);    
+                                }
+                            );
+
+                            data[record] = buff;
+                        }
+                    );
+                }
+            );
+        }
+    </script>
 </head>
 <body>
 
@@ -95,7 +148,13 @@
 					zoom: 13,
 					center: {lat: 40.425, lng: -86.929}
 				});
+                 var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+      
 			}
+            
 		</script>
 		<script async defer 
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
