@@ -51,7 +51,7 @@
 		#map {
 			float: left;
 			width: 100%;
-			height: 400px;
+			height: 600px;
 			background-color: grey;
 		}
 
@@ -109,7 +109,54 @@
         var database = firebase.database();
         var data = {};
         var timer;
+        var map;
+        
+        function initAutocomplete() 
+        {
+            getAllData();
+            map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 13,
+                    center: {lat: 40.425, lng: -86.929},
+                    mapTypeId: 'roadmap'
+                });
 
+            var input = document.getElementById('pac-input');
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+            autocomplete.addListener('place_changed', function() {
+                
+                var place = autocomplete.getPlace();
+                 if (!place.geometry) 
+                 {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                 }
+
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) 
+                {
+                    map.fitBounds(place.geometry.viewport);
+                }
+                else
+                {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);  // Why 17? Because it looks good.
+                }
+                
+                var placeMarker =  new google.maps.Marker({
+                position: place.geometry.location,
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            });    
+            });
+//            
+        }
+
+        
         function addAnnotation()
         {
             var marker;
@@ -155,7 +202,7 @@
                         }
                     );
                     addAnnotation();
-                    timer = setTimeout(getAllData, 5000);
+//                    timer = setTimeout(getAllData, 5000);
                 }
             );
             
@@ -167,7 +214,10 @@
             clearTimeout(timer);
         }
     </script>
-
+    <script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&libraries=places&callback=initAutocomplete">
+    </script>
+	
 </head>
 <body onunload="closing()">
     
@@ -182,35 +232,15 @@
 	<h3>Avaiable Spot</h3>
 	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map"></div>
-	<script async defer 
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&libraries=places&callback=initAutocomplete">
-    </script>
-	<script>
-		function initAutocomplete() {
-           // getAllData();
-            var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 13,
-					center: {lat: 40.425, lng: -86.929},
-					mapTypeId: 'roadmap'
-				});
+	
 
-            var input = document.getElementById('pac-input');
-            var searchBox = new google.maps.places.searchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            map.addListener('bounds_changed', function() {
-            	searchBox.setBounds(map.getBounds());
-            });
-            
-        }
-
-	</script>
-
+<!--
 	<div id="destination" >
 		<p class="ex1">Where are you going?</p>
 		<p class="ex2">example: "lawson"</p>
 		<input type="search" name="destination">
 	</div>
+-->
 
 </body>
 </html>
