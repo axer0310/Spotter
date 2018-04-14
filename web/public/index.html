@@ -187,20 +187,19 @@
     </script>
 	<script>
 		function initAutocomplete() {
-            getAllData();
-            
+           // getAllData();
             var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 13,
-					center: {lat: 40.425, lng: -86.929}
+					center: {lat: 40.425, lng: -86.929},
 					mapTypeId: 'roadmap'
 				});
 
             var input = document.getElementById('pac-input');
-            var searchBox - new google.maps.places.searchBox(input);
+            var searchBox = new google.maps.places.searchBox(input);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
             map.addListener('bounds_changed', function() {
-            	search.setBounds(map.getBounds());
+            	searchBox.setBounds(map.getBounds());
             });
             
         }
