@@ -79,6 +79,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+    
     <script>
         var config = 
           {
@@ -92,6 +93,30 @@
         firebase.initializeApp(config);
         var database = firebase.database();
         var data = {};
+        
+        var map;
+		function initMap() {
+//                 var uluru = {lat: 40.425, lng: -86.929};
+            map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 13,
+					center: {lat: 40.425, lng: -86.929}
+				});
+        }
+        function addAnnotation()
+        {
+            getAllData();
+            var marker;
+            for (var i in data)
+            {
+                marker = new google.maps.Marker({
+                position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
+                map: map
+            });    
+            }
+        }
+		
+		
+        
         function getData(id, path)
         {
               firebase.database().ref(path).once('value').then(
@@ -128,6 +153,9 @@
             );
         }
     </script>
+    <script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
+    </script>
 </head>
 <body>
 
@@ -141,32 +169,7 @@
 	</ul>
 
 	<h3>Avaiable Spot</h3>
-	<div id="map">
-		<script>
-			function initMap() {
-//                 var uluru = {lat: 40.425, lng: -86.929};
-				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 13,
-					center: {lat: 40.425, lng: -86.929}
-				});
-                getAllData();
-                 var marker;
-                for (var i in data)
-                {
-                    marker = new google.maps.Marker({
-                    position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
-                    map: map
-                });    
-                }
-                
-      
-			}
-            
-		</script>
-		<script async defer 
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
-		</script>
-	</div>
+	<div id="map" onload="addAnnotation();"></div>
 	
 	<div id="destination">
 		<p class="ex1">Where are you going?</p>
