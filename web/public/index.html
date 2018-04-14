@@ -74,6 +74,22 @@
 			font-size: 10px;
 		}
 
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+
     </style>
     
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
@@ -93,18 +109,7 @@
         var database = firebase.database();
         var data = {};
         var timer;
-        var map;
-		function initMap() {
-//                 var uluru = {lat: 40.425, lng: -86.929};
-            getAllData();
-            
-            map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 13,
-					center: {lat: 40.425, lng: -86.929}
-				});
 
-            
-        }
         function addAnnotation()
         {
             var marker;
@@ -162,9 +167,7 @@
             clearTimeout(timer);
         }
     </script>
-    <script async defer 
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
-    </script>
+
 </head>
 <body onunload="closing()">
     
@@ -177,14 +180,38 @@
 	</ul>
 
 	<h3>Avaiable Spot</h3>
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 	<div id="map"></div>
-	
+	<script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&libraries=places&callback=initAutocomplete">
+    </script>
+	<script>
+		function initAutocomplete() {
+            getAllData();
+            
+            var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 13,
+					center: {lat: 40.425, lng: -86.929}
+					mapTypeId: 'roadmap'
+				});
+
+            var input = document.getElementById('pac-input');
+            var searchBox - new google.maps.places.searchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener('bounds_changed', function() {
+            	search.setBounds(map.getBounds());
+            });
+            
+        }
+
+	</script>
+
 	<div id="destination" >
 		<p class="ex1">Where are you going?</p>
 		<p class="ex2">example: "lawson"</p>
 		<input type="search" name="destination">
 	</div>
-    <p></p>
 
 </body>
 </html>
