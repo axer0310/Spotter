@@ -1,108 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
+    <head>
+        <style>
+            ul {
+                position: sticky;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li {
+                    float: left;
+            }
+            li a {
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                font-size: 17px;
+                text-decoration: none;
+            }
 
-    ul {
-        position: sticky;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-        li {
-            float: left;
-        }
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
 
-        li a {
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            font-size: 17px;
-            text-decoration: none;
-        }
+            .active {
+                background-color: #4d94ff;
+            }
 
-        li a:hover:not(.active) {
-            background-color: #111;
-        }
+            h1 {
+                text-align: center;
+            }
+            h2 {
+                text-align: center;
+            }
+            .center {
+                padding: 100px 0;
+            }
+            .side {
+                width: 25%;
+            }
+            /* Middle column */
+            .column.middle {
+                position: absolute;
+                top: 30%;
+                left: 15%;
+                width: 70%;
+                padding: 200px 0;
 
-        .active {
-            background-color: #4d94ff;
-        }
+                justify-content: center;
+            }
+            .button {
+                background-color: white; /* Grey */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                margin: 4px 2px;
+                cursor: pointer;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+            }
+            .buttonyes {
+                position: absolute;
+                top: 60%;
+                left: 20%;
 
-        h1 {
-            text-align: center;
-        }
-    h2 {
-        text-align: center;
-    }
-    .center {
-        padding: 100px 0;
-    }
-    .side {
-        width: 25%;
-    }
-    /* Middle column */
-    .column.middle {
-    	position: absolute;
-        top: 30%;
-        left: 15%;
-        width: 70%;
-        padding: 200px 0;
+                padding: 15px 32px;
+                color: black;
+                font-size: 20px;
+                border: none;
+
+            }
+            .buttonno {
+                position: absolute;
+                top: 60%;
+                left: 60%;
+
+                padding: 15px 32px;
+                color: black;
+                font-size: 20px;
+                border: none;
+
+            }
+            .buttonno:hover {
+                background-color: #e7e7e7;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+            .buttonyes:hover {
+                background-color: #e7e7e7;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+        </style>
         
-        justify-content: center;
-    }
-    .button {
-        background-color: white; /* Grey */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-        margin: 4px 2px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-    }
-    .buttonyes {
-    	position: absolute;
-        top: 60%;
-        left: 20%;
-       
-        padding: 15px 32px;
-        color: black;
-        font-size: 20px;
-        border: none;
-        
-    }
-    .buttonno {
-    	position: absolute;
-        top: 60%;
-        left: 60%;
-       
-        padding: 15px 32px;
-        color: black;
-        font-size: 20px;
-        border: none;
-        
-    }
-    .buttonno:hover {
-    	background-color: #e7e7e7;
-    	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    .buttonyes:hover {
-    	background-color: #e7e7e7;
-    	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-</style>
-</head>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+        <script>
+            var config = 
+              {
+                apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+                authDomain: "spotter-6ba86.firebaseapp.com",
+                databaseURL: "https://spotter-6ba86.firebaseio.com",
+                projectId: "spotter-6ba86",
+                storageBucket: "spotter-6ba86.appspot.com",
+                messagingSenderId: "242336049467"
+              };
+            firebase.initializeApp(config);
+            var database = firebase.database();
+        </script>
+    </head>
 
-<body>
+    <body>
 
+<<<<<<< HEAD
     <h1>Let's Park!</h1>
     
     <ul>
@@ -114,41 +130,90 @@
     <div class="side">
     	<p>
     </div>
+=======
+        <h1>Let's Park!</h1>
+>>>>>>> 07bb3ed02f8f3d4995306b6432855e7a78356ace
 
-    <div class="column middle">
-    <h2 = class>Have you spotted a space? </h2>
-    <button class=buttonyes onclick="getLocation()">Yeah !</button>
-    <button class=buttonno onclick="refusetoshare()">Not yet.</button>
-    </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="#">Contribute</a></li>
+            <li><a href="inputRank">Contribution Ranking</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        
+        <div class="side">
+            <p></p>
+        </div>
 
-    <p id="demo"></p>
+        <div class="column middle">
+            <h2>Have you spotted a space? </h2>
+            <button class=buttonyes onclick="getLocation()">Yeah !</button>
+            <button class=buttonno onclick="refusetoshare()">Not yet.</button>
+        </div>
+        <p id="demo"></p>
 
+    </body>
     <script>
-    var x = document.getElementById("demo");
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function refusetoshare(){
-    	alert("SORRY!PARKING WON'T BE AVAILABLE!");
-    	
-    }
-    function showPosition(position) {
-    	var latitude = parseFloat(position.coords.latitude).toFixed(8);
-    	var longitude = parseFloat(position.coords.longitude).toFixed(8);
-    	//x.style.position = "center";
-    	//x.style.left = x_pos+'px';
-    	//x.style.top = y_pos+'px';
-    	x.innerHTML = "Latitude: " + latitude + 
-        "<br>Longitude: " + longitude;
-        //elem.style.position = posVal;
-        /*x.innerHTML = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude;*/
-    }
-</script>
-
-</body>
+            var x = document.getElementById("demo");
+            function getLocation()
+            { 
+                if (navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                else 
+                { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function refusetoshare()
+            {
+                alert("SORRY!PARKING WON'T BE AVAILABLE!");
+            }
+            function showPosition(position) 
+            {
+                var latitude = parseFloat(position.coords.latitude).toFixed(8);
+                var longitude = parseFloat(position.coords.longitude).toFixed(8);
+                
+                var date = new Date();
+                var n = date.getTime();
+                var uploadTime = n.toString();
+                //x.style.position = "center";
+                //x.style.left = x_pos+'px';
+                //x.style.top = y_pos+'px';
+                x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+                setLocation(parseFloat(latitude),parseFloat(longitude),parseFloat(uploadTime));
+                //elem.style.position = posVal;
+                /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;*/
+            }
+            function setLocation(latitude, longitude, uploadTime)
+            {
+                firebase.database().ref('/' + generateID(15)).set(
+                    {
+                        Latitude: latitude,
+                        Longitude: longitude,
+                        UploadTime: uploadTime
+                    }
+                );
+            }
+            
+            function generateID(length)
+            {
+                // Function coming from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+//                window.alert(Math.random())
+                var alphabetAndNum = 
+                    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ];
+                
+                var id = "";
+                
+                for (var i = 0; i<length ; i++)
+                {
+                    id += alphabetAndNum[Math.floor(Math.random() * Math.floor(36))];         
+                }
+//                return Math.random().toString(36).replace(/[^a-z]+/g, '') 
+                return id;
+            }
+            
+        </script>
 </html>

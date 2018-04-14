@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Page Title</title>
+<title>Spotter</title>
 	<style>
 	ul {
 		position: sticky;
@@ -75,11 +75,100 @@
 		}
 
     </style>
-</head>
-<body>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+    
+    <script>
+        var config = {
+            apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+            authDomain: "spotter-6ba86.firebaseapp.com",
+            databaseURL: "https://spotter-6ba86.firebaseio.com",
+            projectId: "spotter-6ba86",
+            storageBucket: "spotter-6ba86.appspot.com",
+            messagingSenderId: "242336049467"
+          };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+        var data = {};
+        var timer;
+        var map;
+		function initMap() {
+//                 var uluru = {lat: 40.425, lng: -86.929};
+            getAllData();
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 13,
+					center: {lat: 40.425, lng: -86.929}
+				});
 
+            
+        }
+        function addAnnotation()
+        {
+            var marker;
+            for (var i in data)
+            {
+                marker = new google.maps.Marker({
+                position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
+                map: map
+            });    
+            }
+        }
+
+        function getData(id, path)
+        {
+              firebase.database().ref(path).once('value').then(
+                    function(snapshot)
+                    {
+                         document.getElementById(id).innerHTML += (snapshot.val()); 
+                    }
+                );
+        }
+        function getAllData()
+        {
+            firebase.database().ref('/').once('value', 
+                function(snapshot) 
+                {
+                    snapshot.forEach(
+                        function(childSnapshot) 
+                        {
+                            var record = childSnapshot.key
+                            var buff = {};
+                            childSnapshot.forEach(
+                                function(childSnapshot)
+                                {
+                                    var key = childSnapshot.key;
+                                    var val = childSnapshot.val();
+                                    buff[key] = val;
+    //                                        window.alert(key + ' : ' + val);    
+                                }
+                            );
+
+                            data[record] = buff;
+                        }
+                    );
+                    addAnnotation();
+                    timer = setTimeout(getAllData, 5000);
+                }
+            );
+            
+        }
+        function closing()
+        {
+            console.log("closing");
+            firebase.app().delete();
+            clearTimeout(timer);
+        }
+    </script>
+    <script async defer 
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
+    </script>
+</head>
+<body onunload="closing()">
+    
 	<h1>Let's Park!</h1>
-	
 	<ul>
 		<li><a class="active" href="/">Home</a></li>
 		<li><a href="/getLocation.html">Contribute</a></li>
@@ -89,25 +178,13 @@
 
 	<h3>Avaiable Spot</h3>
 	<div id="map"></div>
-		<script>
-			function initMap() {
-				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 13,
-					center: {lat: 40.425, lng: -86.929}
-				});
-			}
-		</script>
-		<script async defer 
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&callback=initMap">
-		</script>
-	</div>
 	
-	<div id="destination">
+	<div id="destination" >
 		<p class="ex1">Where are you going?</p>
 		<p class="ex2">example: "lawson"</p>
 		<input type="search" name="destination">
-		
 	</div>
+    <p></p>
 
 </body>
 </html>
