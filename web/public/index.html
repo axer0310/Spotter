@@ -1,105 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Spotter</title>
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-	<style>
-    body {
-        background: #fff;
-        padding: 0px;
-        margin: 0px;
-        font-family: 'Nunito', sans-serif;
-    }
-
-	ul {
-		position: sticky;
-	    list-style-type: none;
-	    margin: 0;
-	    padding: 0;
-	    overflow: hidden;
-	    background-color: #333;
-	}
-		li {
-		    float: left;
-		}
-
-		li a {
-		    display: block;
-		    color: #f2f2f2;
-		    text-align: center;
-		    padding: 14px 16px;
-		    font-size: 17px;
-		    text-decoration: none;
-		}
-
-		li a:hover:not(.active) {
-		    background-color: #111;
-		}
-
-		.active {
-   			background-color: #4d94ff;
-		}
-
-		h1 {
-			text-align: center;
-            font-size: 35px;
-		}
-
-		h3 {
-			font-size: 20px;
-		}
-
-		p.ex1 {
-			font-size: 20px;
-		}
-
-		p.ex2 {
-			font-size: 15px;
-		}
-
-		#map {
-			float: left;
-			width: 100%;
-			height: 600px;
-			background-color: grey;
-		}
-
-		table th, td{
-			float: right;
-			border: 1px solid black;
-	  	  	border-collapse: collapse;
-		}
-
-		th, td {
-		    padding: 2px;
-		    text-align: left;
-		    font-size: 7px;
-		}
-
-		#destination {
-			float: left;
-			width: 40%;
-			height: 100px;
-			font-size: 10px;
-		}
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-
-    </style>
+    <title>Spotter</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="index_design.css">
     
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
@@ -223,6 +127,7 @@
             clearTimeout(timer);
         }
     </script>
+    <script src="login.js"></script>
     <script async defer 
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&libraries=places&callback=initAutocomplete">
     </script>
@@ -238,9 +143,26 @@
 		<li><a href="/about">About</a></li>
 	</ul>
 
-	<h3>Avaiable Spot</h3>
-	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-	<div id="map"></div>
+    <div id="login_div" class="login-div">
+        <h2>Avaiable Spot</h2>
+        <h3>Save Your Contribution</h3>
+        <input type="email" placeholder="Email..." id="email_field"/>
+        <input type="password" placeholder="Password..." id="password_field"/>
+
+        <button onclick="login()">Log In</button>
+        <button>Sign Up</button>
+    </div>
+
+    <div id="user_div" class="loggedin-div">
+        <h2>Avaiable Spot</h2>
+        <h3>Welcome to Spotter</h3>
+        <p id="user_p">You're currently logged in.</p>
+        <button>Log Out</button>
+    </div>
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+
 
 </body>
 </html>

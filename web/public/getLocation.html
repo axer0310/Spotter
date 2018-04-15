@@ -20,7 +20,6 @@
             firebase.initializeApp(config);
             var database = firebase.database();
         </script>
-        <script src="login.js"></script>
     </head>
 
     <body>
@@ -32,22 +31,6 @@
             <li><a href="inputRank">Contribution Ranking</a></li>
             <li><a href="/about">About</a></li>
         </ul>
-        
-        
-        <div id="" class="login-div">
-            <h3>Save Your Contribution</h3>
-            <input type="email" placeholder="Email..." id="email_field"/>
-            <input type="password" placeholder="Password..." id="password_field"/>
-
-            <button onclick="login()">Log In</button>
-            <button>Sign Up</button>
-        </div>
-
-        <div id="user_div" class="loggedin-div">
-            <h3>Welcome to Spotter</h3>
-            <p>You're currently logged in.</p>
-            <button>Logout</button>
-        </div>
 
         <div class="column middle">
             <h2>Have you spotted a parking space? </h2>
