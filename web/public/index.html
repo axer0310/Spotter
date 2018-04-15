@@ -143,21 +143,20 @@
 		<li><a href="/about">About</a></li>
 	</ul>
 
+    <h2>Avaiable Spot</h2>
     <div id="login_div" class="login-div">
-        <h2>Avaiable Spot</h2>
         <h3>Save Your Contribution</h3>
         <input type="email" placeholder="Email..." id="email_field"/>
         <input type="password" placeholder="Password..." id="password_field"/>
 
         <button onclick="login()">Log In</button>
-        <button>Sign Up</button>
+        <button onclick="signUp()" >Sign Up</button>
     </div>
 
     <div id="user_div" class="loggedin-div">
-        <h2>Avaiable Spot</h2>
         <h3>Welcome to Spotter</h3>
         <p id="user_p">You're currently logged in.</p>
-        <button>Log Out</button>
+        <button onclick="logout()">Log Out</button>
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
