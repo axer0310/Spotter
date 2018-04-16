@@ -162,13 +162,13 @@
         function addAnnotation()
         {
             var marker;
-            for (var i in data, var i =0)
+            for (var i in data , count = 0)
             {
                 markers[i] = new google.maps.Marker({
                 position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                 map: map
             });    
-                i++;
+                count++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
                                                                   });
