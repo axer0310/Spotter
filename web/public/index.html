@@ -165,7 +165,7 @@
             var count = 0;
             for (var i in data)
             {
-                markers[i] = new google.maps.Marker({
+                markers[count] = new google.maps.Marker({
                 position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                 map: map
             });    
