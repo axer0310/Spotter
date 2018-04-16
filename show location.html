@@ -1,14 +1,20 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3css/4/w3.css">
 <html>
 <head>
 <style>
 h1 {
+
     text-align: center;
+    color: black;
 }
 .center {
     padding: 100px 0;
-    border: 3px solid green;
+    border: 3px #c0ded9;
+    
 }
+.w3-half {height:280px;padding-top:16px}
 
 .side {
     width: 25%;
@@ -20,16 +26,16 @@ h1 {
     left: 15%;
     width: 70%;
     padding: 200px 0;
-    border: 5px solid grey;
+    border: 5px #c0ded9;
     
     justify-content: center;
 }
 
 
 .button {
-    background-color: white; /* Grey */
+    /* Grey */
     border: none;
-    color: white;
+    color: green;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -80,8 +86,9 @@ h1 {
 	<p>
 </div>
 
-<div class="column middle">
+<div class="column middle" w3-half w3-center" style="background:#c0ded9">
 <h1 = class>Would your like to share your location? </h1>
+
 <button class=buttonyes onclick="getLocation()">Yeah ! Of course!</button>
 <button class=buttonno onclick="refusetoshare()">No thanks.</button>
 </div>
