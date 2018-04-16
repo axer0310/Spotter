@@ -109,6 +109,7 @@
         firebase.initializeApp(config);
         var database = firebase.database();
         var data = {};
+        var markers = {};
         var timer;
         var map;
         
@@ -161,12 +162,13 @@
         function addAnnotation()
         {
             var marker;
-            for (var i in data)
+            for (var i in data, var i =0)
             {
-                marker = new google.maps.Marker({
+                markers[i] = new google.maps.Marker({
                 position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                 map: map
             });    
+                i++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
                                                                   });
