@@ -1,0 +1,185 @@
+body {
+background: #fff;
+padding: 0px;
+margin: 0px;
+position: relative;
+font-family: 'Nunito', sans-serif;
+}
+
+ul {
+position: sticky;
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+	background-color: #4d94ff;
+}
+
+h1 {
+	text-align: center;
+    font-size: 35px;
+}
+
+input, button {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+
+
+.login-div, .loggedin-div {
+    float: right;
+    top: 12%;
+    width: 25%;
+}
+
+#email_field {
+    float: right;
+    margin-right: 10px;
+}
+
+#password_field {
+    float: right;
+    margin-right: 10px;
+}
+
+.login-div input {
+    display: block;
+    border: .5px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    padding: 5px;
+    outline: none;
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.login-div button {
+    background: #5d8ffc;
+    color: #fff;
+    border: 1px solic #5d8ffc;
+    border-radius: 2px;
+    padding: 5px;
+    display: block;
+    width: 25%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+
+.loggedin-div button {
+    margin-top: 15px;
+    background: #5d8ffc;
+    color: #fff;
+    border: 1px solic #5d8ffc;
+    border-radius: 2px;
+    padding: 5px;
+    display: block;
+    width: 25%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+
+.login-div input:focus {
+    border: 1px solid #777;
+}
+
+.login-div button:hover {
+    background: #fff;
+    color: #5d8ffc;
+    border: 1px solic #5d8ffc;
+    padding: 5px;
+    display: block;
+    width: 20%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h2 {
+    position: absolute;
+    float: left;
+	font-size: 20px;
+}
+
+p.ex1 {
+	font-size: 20px;
+}
+
+p.ex2 {
+	font-size: 15px;
+}
+
+#map {
+    display: block;
+	position: relative;
+    float: center;
+    top: 30%;
+	width: 80%;
+	height: 500px;
+    margin: 100px auto;
+	background-color: grey;
+    border: 1px;
+    border-color: #333;
+    border-width: 1.5px;
+}
+
+table th, td{
+	float: right;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+    padding: 2px;
+    text-align: left;
+    font-size: 7px;
+}
+
+#destination {
+	float: left;
+	width: 40%;
+	height: 100px;
+	font-size: 10px;
+}
+
+#pac-input {
+background-color: #fff;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+margin-left: 12px;
+padding: 0 11px 0 13px;
+text-overflow: ellipsis;
+width: 400px;
+}
+
+#pac-input:focus {
+border-color: #4d90fe;
+}

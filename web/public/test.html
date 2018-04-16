@@ -1,0 +1,110 @@
+<!doc type>
+<html>
+    <head>
+        <title> Test Page </title>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+        <script>
+          // Initialize Firebase
+              var config = 
+              {
+                apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+                authDomain: "spotter-6ba86.firebaseapp.com",
+                databaseURL: "https://spotter-6ba86.firebaseio.com",
+                projectId: "spotter-6ba86",
+                storageBucket: "spotter-6ba86.appspot.com",
+                messagingSenderId: "242336049467"
+              };
+              firebase.initializeApp(config);
+              var database = firebase.database();
+              var data = {};
+            function getData(id, path)
+            {
+                  firebase.database().ref(path).once('value').then(
+                        function(snapshot)
+                        {
+                             document.getElementById(id).innerHTML += (snapshot.val()); 
+                        }
+                    );
+            }
+            function getAllData()
+            {
+                firebase.database().ref('/').once('value', 
+                    function(snapshot) 
+                    {
+                        snapshot.forEach(
+                            function(childSnapshot) 
+                            {
+                                var record = childSnapshot.key
+                                var buff = {};
+                                childSnapshot.forEach(
+                                    function(childSnapshot)
+                                    {
+                                        var key = childSnapshot.key;
+                                        var val = childSnapshot.val();
+                                        buff[key] = val;
+//                                        window.alert(key + ' : ' + val);    
+                                    }
+                                );
+                                
+                                data[record] = buff;
+                            }
+                        );
+                    }
+                );
+            }
+            function setData(longitude, latitude, time)
+            {
+                firebase.database().ref('/3').set(
+                    {
+                        Latitude: latitude,
+                        Longitude: longitude,
+                        UploadTime: time
+                    }
+                );
+            }
+                
+            function alertAllData()
+            {
+                for (var i in data)
+                {
+                    var lat = data[i]["Latitude"];
+                    var long = data[i]["Longitude"];
+                    var time = data[i]["UploadTime"];
+                    window.alert("Record Name: " + i + "\n" +
+                                    "Latitude: " + lat + "\n" +
+                                    "Longitude: " + long + "\n" +
+                                    "Upload Time: " + time + "\n"
+                                );
+//                    var buf = data[i];
+//                    for (var i in buf )
+//                    {
+//                        window.alert(i + " : "  + buf[i]);
+//                    }
+                }
+            }
+            
+            
+        </script>
+        
+        
+        
+    </head>
+    <body>
+        <h1 >Test<script>getAllData()</script></h1>
+        <h1 id = "lat">Latitude = 
+            <script>
+                getData('lat', '/1/Latitude');
+            </script> 
+        </h1>
+        <h1 id = "long">Longitude = 
+            <script> 
+                getData('long', '/1/Longitude');
+            </script> 
+        </h1>
+        <h1 onclick="alertAllData();">onmouseover</h1>
+        <button onclick="setData(48.93,60.87,'2018:04:13:18:06:48')"></button>
+    </body>
+</html>
+        
