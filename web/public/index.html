@@ -93,15 +93,17 @@
                 var n = date.getTime();
 //                alert(n-7200000);
 //                alert(parseInt(data[i]["UploadTime"]));
-                if(parseInt(data[i]["UploadTime"]) < n-7200000)
+                if(parseInt(data[i]["UploadTime"]) > n-7200000)
                 {
-                    alert("older than 2 hrs");            
+                    markers[count] = new google.maps.Marker({
+                        position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
+                        map: map
+                    });    
+//                    alert("older than 2 hrs");            
                 }
                 
-                markers[count] = new google.maps.Marker({
-                position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
-                map: map
-            });    
+                
+            
                 count++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
