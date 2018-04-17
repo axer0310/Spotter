@@ -84,11 +84,19 @@
             var marker;
             var count = 0;
             
-            
+            removeAllMarkers();     // reinitialize map
             
             
             for (var i in data)
             {
+                var date = new Date();
+                var n = date.getTime();
+                
+                if(parseFloat(data[i]["UploadTime"]) > n-7200000)
+                {
+                    alert("older than 2 hrs");            
+                }
+                
                 markers[count] = new google.maps.Marker({
                 position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                 map: map
@@ -179,7 +187,7 @@
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
-    <button onclick="removeAllMarkers()">remove</button>
+
 
 </body>
 </html>
