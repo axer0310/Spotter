@@ -27,7 +27,7 @@
             var input = document.getElementById('pac-input');
             var timeRange = document.getElementById('time');
             var table = document.getElementById("markerTable");
-            var closeTable = document.getElementById("markerTable");
+            var closeTable = document.getElementById("closeTable");
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(closeTable);
@@ -194,7 +194,15 @@
         }
         function closeTable()
         {
-            document.getElementById("markerTable").innerHTML = "";
+            document.getElementById("markerTable").style.visibility = "hidden";
+//            document.getElementById("closeTable").onclick() = openTable();
+            
+            clearTimeout(timer);
+        }
+        function openTable()
+        {
+            document.getElementById("markerTable").style.visibility = "visible";
+            timer = setTimeout(getAllData, 5000);
         }
         function closing()
         {
