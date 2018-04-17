@@ -71,12 +71,22 @@
             });
 //            
         }
-
+        function removeAllMarkers()
+        {
+            for (var i in markers)
+            {
+                markers[i].setMap(null);            
+            }
+        }
         
         function addAnnotation()
         {
             var marker;
             var count = 0;
+            
+            
+            
+            
             for (var i in data)
             {
                 markers[count] = new google.maps.Marker({
@@ -169,7 +179,7 @@
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
-
+    <button onclick="removeAllMarkers()">remove</button>
 
 </body>
 </html>
