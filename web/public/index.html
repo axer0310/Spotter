@@ -83,6 +83,24 @@
         }
         function setTimeRange(time)
         {
+            switch time
+            {
+                case 2:
+                    document.getElementById("timeRange1hr").checked = false;
+                    document.getElementById("timeRangeHalf").checked = false;
+                    break;
+                case 1:
+                    document.getElementById("timeRange2hr").checked = false;
+                    document.getElementById("timeRangeHalf").checked = false;
+                    break;
+                case 0.5:
+                    document.getElementById("timeRange1hr").checked = false;
+                    document.getElementById("timeRangeHalf").checked = false;
+                    break;
+                default:
+                    break;
+            }
+            
             timeRange = time*3600000;
         }
         function addAnnotation()
@@ -191,11 +209,11 @@
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="time" style="background-color: #688fec">
-    <input id="timeRange" type="radio" checked="checked" onclick=setTimeRange(2)>
+    <input id="timeRange2hr" type="radio" checked="checked" onclick=setTimeRange(2)>
         <label style="color: #ffffff">2 Hours</label>
-    <input id="timeRange" type="radio" onclick=setTimeRange(1)>
+    <input id="timeRange1hr" type="radio" onclick=setTimeRange(1)>
         <label style="color: #ffffff">1 Hour</label>
-    <input id="timeRange" type="radio" onclick=setTimeRange(0.5)>
+    <input id="timeRangeHalf" type="radio" onclick=setTimeRange(0.5)>
         <label style="color: #ffffff">0.5 Hour</label>
     </div>
     <div id="map"></div>
