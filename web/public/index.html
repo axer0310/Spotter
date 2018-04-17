@@ -80,7 +80,10 @@
                 markers[i].setMap(null);            
             }
         }
-        
+        function setTimeRange()
+        {
+            alert("2hr");
+        }
         function addAnnotation()
         {
             var marker;
@@ -186,7 +189,8 @@
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <input id="timeRange" type="radio" >
+    <input id="timeRange" type="radio" onclick=setTimeRange()>
+        <label>2 Hours</label>
     <div id="map"></div>
 
 
