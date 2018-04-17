@@ -92,7 +92,7 @@
                 var date = new Date();
                 var n = date.getTime();
                 
-                if(parseFloat(data[i]["UploadTime"]) > n-7200000)
+                if(parseInt(data[i]["UploadTime"]) > n-7200000)
                 {
                     alert("older than 2 hrs");            
                 }
