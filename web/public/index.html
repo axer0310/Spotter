@@ -37,7 +37,9 @@
                 });
 
             var input = document.getElementById('pac-input');
+            var timeRange = document.getElementById('timeRange');
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
             var autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
 
@@ -83,27 +85,22 @@
         {
             var marker;
             var count = 0;
-            
+            var date = new Date();
+            var n = date.getTime();
+
             removeAllMarkers();     // reinitialize map
             
             
             for (var i in data)
             {
-                var date = new Date();
-                var n = date.getTime();
-//                alert(n-7200000);
-//                alert(parseInt(data[i]["UploadTime"]));
+                
                 if(parseInt(data[i]["UploadTime"]) > n-7200000)
                 {
                     markers[count] = new google.maps.Marker({
                         position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                         map: map
-                    });    
-//                    alert("older than 2 hrs");            
+                    });       
                 }
-                
-                
-            
                 count++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
@@ -189,6 +186,7 @@
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <input id="timeRange" type="radio" >
     <div id="map"></div>
 
 
