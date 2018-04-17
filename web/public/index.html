@@ -25,6 +25,7 @@
         var data = {};
         var markers = {};
         var timer;
+        var timeRange=7200000;
         var map;
         
         function initAutocomplete() 
@@ -37,7 +38,9 @@
                 });
 
             var input = document.getElementById('pac-input');
+            var timeRange = document.getElementById('time');
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
             var autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
 
@@ -71,18 +74,56 @@
             });
 //            
         }
-
-        
+        function removeAllMarkers()
+        {
+            for (var i in markers)
+            {
+                markers[i].setMap(null);            
+            }
+        }
+        function setTimeRange(time)
+        {
+            switch (time)
+            {
+                case 2:
+                    document.getElementById("timeRange1hr").checked = false;
+                    document.getElementById("timeRangeHalf").checked = false;
+                    break;
+                case 1:
+                    document.getElementById("timeRange2hr").checked = false;
+                    document.getElementById("timeRangeHalf").checked = false;
+                    break;
+                case 0.5:
+                    document.getElementById("timeRange1hr").checked = false;
+                    document.getElementById("timeRange2hr").checked = false;
+                    break;
+                default:
+                    break;
+            }
+            
+            timeRange = time*3600000;
+            addAnnotation();
+        }
         function addAnnotation()
         {
             var marker;
             var count = 0;
+            var date = new Date();
+            var n = date.getTime();
+
+            removeAllMarkers();     // reinitialize map
+            
+            
             for (var i in data)
             {
-                markers[count] = new google.maps.Marker({
-                position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
-                map: map
-            });    
+                
+                if(parseInt(data[i]["UploadTime"]) > n-timeRange)
+                {
+                    markers[count] = new google.maps.Marker({
+                        position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
+                        map: map
+                    });       
+                }
                 count++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
@@ -147,17 +188,19 @@
 	<ul>
 		<li><a class="active" href="/">Home</a></li>
 		<li><a href="/getLocation.html">Contribute</a></li>
-		<li><a href="inputRank">Contribution Ranking</a></li>
-		<li><a href="/about">About</a></li>
+		<li><a href="/ContributionRank.html">Contribution Ranking</a></li>
+		<li><a href="/about.html">About</a></li>
 	</ul>
 
-    <h2>Avaiable Spot</h2>
-    <div id="login_div" class="login-div">
+    <div>
+         <h2>Avaiable Spot</h2>
+    </div>
+  
+    <div id="login_div" class="login-sec">
         <h3>Save Your Contribution</h3>
-        <input type="email" placeholder="Email..." id="email_field"/>
-        <input type="password" placeholder="Password..." id="password_field"/>
-
-        <button onclick="login()">Log In</button>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+        <button onclick="login()" id="login-butd">Log In</button>
         <button onclick="signUp()" >Sign Up</button>
     </div>
 
@@ -168,6 +211,14 @@
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="time" style="background-color: #688fec">
+    <input id="timeRange2hr" type="radio" checked="checked" onclick=setTimeRange(2)>
+        <label style="color: #ffffff">2 Hours</label>
+    <input id="timeRange1hr" type="radio" onclick=setTimeRange(1)>
+        <label style="color: #ffffff">1 Hour</label>
+    <input id="timeRangeHalf" type="radio" onclick=setTimeRange(0.5)>
+        <label style="color: #ffffff">0.5 Hour</label>
+    </div>
     <div id="map"></div>
 
 

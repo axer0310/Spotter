@@ -41,29 +41,45 @@ h1 {
     font-size: 35px;
 }
 
-input, button {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
+
+h2 {
+    position: absolute;
+    float: left;
+    font-size: 20px;
 }
 
 
-.login-div, .loggedin-div {
+h3 {
+    position: relative;
+    font-size: 14px;
+}
+
+.login-sec, .loggedin-div {
+    display: block;
+    position: relative;
     float: right;
     top: 12%;
     width: 25%;
 }
 
+
+
+#login-butd {
+    position: relative;
+    margin:  2px;
+}
+
 #email_field {
-    float: right;
-    margin-right: 10px;
+    float: left;
+    margin: 2px;
 }
 
 #password_field {
-    float: right;
-    margin-right: 10px;
+    float: left;
+    margin: 2px;
 }
 
-.login-div input {
+.login-sec input {
     display: block;
     border: .5px solid #ccc;
     border-radius: 2px;
@@ -74,17 +90,34 @@ input, button {
     margin-bottom: 5px;
 }
 
-.login-div button {
+.login-sec button {
     background: #5d8ffc;
     color: #fff;
-    border: 1px solic #5d8ffc;
+    border: .5px solic #5d8ffc;
     border-radius: 2px;
-    padding: 5px;
+    padding: 4px;
     display: block;
     width: 25%;
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
+}
+
+.login-sec input:focus {
+    border: 1px solid #777;
+}
+
+.login-sec button:hover, .loggedin-div button:hover {
+    background: #fff;
+    color: #5d8ffc;
+    border: 1px solic #5d8ffc;
+    padding: 5px;
+    display: block;
+    width: 20%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+
 }
 
 .loggedin-div button {
@@ -99,33 +132,6 @@ input, button {
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
-}
-
-.login-div input:focus {
-    border: 1px solid #777;
-}
-
-.login-div button:hover {
-    background: #fff;
-    color: #5d8ffc;
-    border: 1px solic #5d8ffc;
-    padding: 5px;
-    display: block;
-    width: 20%;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-
-}
-
-h3 {
-    font-size: 14px;
-}
-
-h2 {
-    position: absolute;
-    float: left;
-	font-size: 20px;
 }
 
 p.ex1 {
