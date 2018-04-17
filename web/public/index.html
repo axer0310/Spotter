@@ -37,7 +37,7 @@
                 });
 
             var input = document.getElementById('pac-input');
-            var timeRange = document.getElementById('timeRange');
+            var timeRange = document.getElementById('time');
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
             var autocomplete = new google.maps.places.Autocomplete(input);
@@ -189,8 +189,10 @@
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="time">
     <input id="timeRange" type="radio" onclick=setTimeRange()>
         <label>2 Hours</label>
+    </div>
     <div id="map"></div>
 
 
