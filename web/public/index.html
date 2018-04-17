@@ -25,6 +25,7 @@
         var data = {};
         var markers = {};
         var timer;
+        var timeRange=7200000;
         var map;
         
         function initAutocomplete() 
@@ -80,9 +81,9 @@
                 markers[i].setMap(null);            
             }
         }
-        function setTimeRange()
+        function setTimeRange(time)
         {
-            alert("2hr");
+            timeRange = time*3600000;
         }
         function addAnnotation()
         {
@@ -97,7 +98,7 @@
             for (var i in data)
             {
                 
-                if(parseInt(data[i]["UploadTime"]) > n-7200000)
+                if(parseInt(data[i]["UploadTime"]) > n-timeRange)
                 {
                     markers[count] = new google.maps.Marker({
                         position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
@@ -190,8 +191,12 @@
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="time" style="background-color: #688fec">
-    <input id="timeRange" type="radio" onclick=setTimeRange()>
-        <label style="color: #ffffff">2 Hours </label>
+    <input id="timeRange" type="radio" checked="checked" onclick=setTimeRange(2)>
+        <label style="color: #ffffff">2 Hours</label>
+    <input id="timeRange" type="radio" onclick=setTimeRange(1)>
+        <label style="color: #ffffff">1 Hour</label>
+    <input id="timeRange" type="radio" onclick=setTimeRange(0.5)>
+        <label style="color: #ffffff">0.5 Hour</label>
     </div>
     <div id="map"></div>
 
