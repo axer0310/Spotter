@@ -156,16 +156,20 @@ p.ex2 {
     border-width: 1.5px;
 }
 
-table th, td{
-	float: right;
-	border: 1px solid black;
-	border-collapse: collapse;
+table tr, th, td{
+/*	float: center;*/
+    border: 1px solid white;
+    border-collapse: collapse;
 }
 
 th, td {
     padding: 2px;
-    text-align: left;
-    font-size: 7px;
+    text-align: center;
+    color: #314f5c;
+    font-size: 15px;
+    font-style: bold;
+    border-collapse: collapse;
+    
 }
 
 #destination {
