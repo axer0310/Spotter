@@ -93,9 +93,11 @@
                     document.getElementById("timeRange2hr").checked = false;
                     document.getElementById("timeRangeHalf").checked = false;
                     break;
-                default:
+                case 0.5:
                     document.getElementById("timeRange1hr").checked = false;
-                    document.getElementById("timeRangeHalf").checked = false;
+                    document.getElementById("timeRange2hr").checked = false;
+                    break;
+                default:
                     break;
             }
             
