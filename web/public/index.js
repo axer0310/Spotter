@@ -14,6 +14,35 @@
         var timer;
         var timeRange=7200000;
         var map;
+
+
+        function debugMode()
+        {
+            alert("Starting debug mode");
+//            timeRange = 0;
+            var date = new Date();
+            var n = date.getTime();
+            var count = 0;
+            for (var i in data)
+            {
+                if(count < 3)
+                {
+                    data[i]["UploadTime"] =  n - 1700000;
+                }
+                else if( count > 3 && count < 6 )
+                {
+                    data[i]["UploadTime"] =  n - 3500000;
+                }
+                else if(count > 6)
+                {
+                    data[i]["UploadTime"] =  n - 7100000;
+                }
+                count++;
+            }
+            addAnnotation();
+            clearTimeout(timer);
+        }
+
         
         function initAutocomplete() 
         {
@@ -93,6 +122,9 @@
             }
             
             timeRange = time*3600000;
+            alert("time: " + time);
+            removeAllMarkers();
+            markers={};
             addAnnotation();
         }
         function addAnnotation()
@@ -137,19 +169,25 @@
         }
         function clickRow(count)
         {
+//            removeAllMarkers();
+            
             map.setCenter(markers[count].getPosition());
-            markers[count].setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
             map.setZoom(17);
             clearTimeout(timer);
             
             for (var i in markers)
             {
-                if(i != count)
+                
+                if(parseInt(i) != parseInt(count))
                 {
                     markers[i] = new google.maps.Marker({
                         position: markers[i].getPosition(),
                         map: map
                     });     
+                }
+                else
+                {
+                    markers[parseInt(i)].setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
                 }
             }
             
@@ -192,16 +230,21 @@
             );
             
         }
+
+        
+
         function closeTable()
         {
             document.getElementById("markerTable").style.visibility = "hidden";
-//            document.getElementById("closeTable").onclick() = openTable();
-            
+            document.getElementById("closeTable").onclick = openTable;
+            document.getElementById("closeTable").innerHTML = "Open Table"
             clearTimeout(timer);
         }
         function openTable()
         {
             document.getElementById("markerTable").style.visibility = "visible";
+            document.getElementById("closeTable").onclick = closeTable;
+            document.getElementById("closeTable").innerHTML = "Close Table"
             timer = setTimeout(getAllData, 5000);
         }
         function closing()
