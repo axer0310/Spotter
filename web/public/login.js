@@ -2,7 +2,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 		if(firebaseUser) {
 			document.getElementById("login_div").style.display = "none";
 			document.getElementById("user_div").style.display = "block";
-			console.log(firebaseUser);
 			console.log("logged in");
 		} else {
 			console.log('not logged in');
@@ -42,6 +41,7 @@ function signUp() {
 		var errorMessage = error.message;
 	}); 
 	console.log("signed up with email " + userEmail);
+
 	//check email
 }
 

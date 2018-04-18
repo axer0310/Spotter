@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="getLocation_design.css">
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
         <script>
             var config = 
@@ -65,22 +66,29 @@
                 var date = new Date();
                 var n = date.getTime();
                 var uploadTime = n.toString();
-                //x.style.position = "center";
-                //x.style.left = x_pos+'px';
-                //x.style.top = y_pos+'px';
+                var userId;
+                firebase.auth().onAuthStateChanged(firebaseUser => {
+                if(firebaseUser) {
+                    userId = firebaseUser.email;
+                    console.log(firebaseUser);
+                    console.log("logged in");
+                } else {
+                    console.log('not logged in');
+                    userId = none;
+                }
+             });
+
                 x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
-                setLocation(parseFloat(latitude),parseFloat(longitude),parseFloat(uploadTime));
-                //elem.style.position = posVal;
-                /*x.innerHTML = "Latitude: " + position.coords.latitude + 
-                "<br>Longitude: " + position.coords.longitude;*/
+                setLocation(parseFloat(latitude),parseFloat(longitude),parseFloat(uploadTime), userId);
             }
-            function setLocation(latitude, longitude, uploadTime)
+            function setLocation(latitude, longitude, uploadTime, userId)
             {
                 firebase.database().ref('/' + generateID(15)).set(
                     {
                         Latitude: latitude,
                         Longitude: longitude,
-                        UploadTime: uploadTime
+                        UploadTime: uploadTime,
+                        UserId: userId
                     }
                 );
             }
