@@ -122,7 +122,6 @@
             }
             
             timeRange = time*3600000;
-            alert("time: " + time);
             removeAllMarkers();
             markers={};
             addAnnotation();
@@ -137,7 +136,7 @@
             removeAllMarkers();     // reinitialize map
             
             var table = document.getElementById("markerTable");
-            var tableHtml = "<table><tr><th>Number</th><th>Upload Tinme</th></tr>";
+            var tableHtml = "<table><tr><th>Number</th><th>Upload Time</th></tr>";
             
             for (var i in data)
             {
@@ -162,7 +161,7 @@
             var date = new Date(uploadTime);
             var row = "<tr>" + 
                         "<td onclick=\"clickRow(" + count + ");\">" + count + "</td>" +
-                        "<td>" + date.toTimeString() + "</td>" + 
+                        "<td onclick=\"clickRow(" + count + ");\">" + date.toTimeString() + "</td>" + 
                       "</tr>";
             tableHtml+=row;
             return tableHtml;

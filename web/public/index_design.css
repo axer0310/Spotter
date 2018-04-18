@@ -155,11 +155,14 @@ p.ex2 {
     border-color: #333;
     border-width: 1.5px;
 }
-
+table {
+   border-collapse: collapse;
+}
 table tr, th, td{
 /*	float: center;*/
-    border: 1px solid white;
-    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: white;
+    opacity: 0.9;
 }
 
 th, td {
@@ -168,8 +171,13 @@ th, td {
     color: #314f5c;
     font-size: 15px;
     font-style: bold;
+/*    opacity: 0.5;*/
     border-collapse: collapse;
     
+}
+tr:hover {
+    background-color: aqua;
+    opacity: 1;
 }
 
 #destination {
