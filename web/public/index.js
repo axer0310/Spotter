@@ -224,7 +224,7 @@
                         }
                     );
                     addAnnotation();
-                    timer = setTimeout(getAllData, 5000);
+                   // timer = setTimeout(getAllData, 5000);
                 }
             );
             
@@ -244,7 +244,7 @@
             document.getElementById("markerTable").style.visibility = "visible";
             document.getElementById("closeTable").onclick = closeTable;
             document.getElementById("closeTable").innerHTML = "Close Table"
-            timer = setTimeout(getAllData, 5000);
+           // timer = setTimeout(getAllData, 5000);
         }
         function closing()
         {

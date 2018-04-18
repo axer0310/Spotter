@@ -7,8 +7,13 @@
     
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="242336049467-sn1iiiij07bi0mp7ptogfpabr72metqn.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
     <script src="index.js"></script>
     <script src="login.js"></script>
     <script async defer 
@@ -34,14 +39,16 @@
         <h3>Save Your Contribution</h3>
         <input type="email" placeholder="Email..." id="email_field" >
         <input type="password" placeholder="Password..." id="password_field" >
-        <button onclick="login()" id="login-butd">Log In</button>
+        <button onclick="login()" id="login-btn">Log In</button>
         <button onclick="signUp()" >Sign Up</button>
     </div>
-
+    
     <div id="user_div" class="loggedin-div">
         <h3>Welcome to Spotter</h3>
         <p id="user_p">You're currently logged in.</p>
         <button onclick="logout()">Log Out</button>
+    </div>
+    <div class="hide">
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">

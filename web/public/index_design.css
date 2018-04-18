@@ -56,12 +56,14 @@ h3 {
 
 .login-sec, .loggedin-div {
     display: block;
-    position: relative;
     float: right;
     top: 12%;
     width: 25%;
 }
 
+.hide {
+    display: none;
+}
 
 
 #login-butd {
@@ -132,6 +134,12 @@ h3 {
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
+}
+
+.g-signin2 {
+    position: relative;
+    float: right;
+    background: #fff;
 }
 
 p.ex1 {
