@@ -1,0 +1,41 @@
+[debug] [2018-04-21T18:23:37.993Z] ----------------------------------------------------------------------
+[debug] [2018-04-21T18:23:37.995Z] Command:       c:\Program Files\nodejs\node.exe c:\Users\hexu1\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-04-21T18:23:37.995Z] CLI Version:   3.18.4
+[debug] [2018-04-21T18:23:37.996Z] Platform:      win32
+[debug] [2018-04-21T18:23:37.996Z] Node Version:  v8.11.1
+[debug] [2018-04-21T18:23:37.996Z] Time:          Sat Apr 21 2018 14:23:37 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:37.996Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-21T18:23:38.008Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-21T18:23:38.010Z] > authorizing via signed-in user
+[debug] [2018-04-21T18:23:38.012Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-21T18:23:38.012Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/FaTxtkeV_ec0UucgWy6L72kapABsM9Zpv3T-0EjG5-S3vPW3wYi27eI0lGVboyYR',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Apr 21 2018 14:23:38 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:38.167Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T18:23:38.185Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 14:23:38 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:39.565Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T18:23:39.568Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotter-6ba86/tokens  
+  
+ Sat Apr 21 2018 14:23:39 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:40.186Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T18:23:40.190Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 14:23:40 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:40.503Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'c:\Purdue\CS252\lab\lab6\Spotter\web'...
+[info] 
+[debug] [2018-04-21T18:23:40.520Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/242336049467/clients/_:getWebAppConfig  
+  
+ Sat Apr 21 2018 14:23:40 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:23:41.756Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

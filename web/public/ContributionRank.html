@@ -64,14 +64,30 @@
 			}
 
 			h1 {
-				text-align: center;
+				  text-align: center;
 			    font-size: 35px;
 			}
 
+      .countDownContainer {
+        position: relative;
+        top: 90%;
+        float: right;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        background: %ddd;
+        border: 1px solid #999;
+        padding: 10px;
+        box-shadow: 0 0 5px 3px #ccc;
+      }
+
+      .info {
+        font-size: 20px;
+      }
 	</style>
     <script src="/ContributionRank.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 	<h1>Let's Park!</h1>
 	<ul>
 		<li><a href="/">Home</a></li>
@@ -229,5 +245,32 @@
 
 </script> 	
 
+=======
+  <h1>Let's Park!</h1>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/getLocation.html">Contribute</a></li>
+    <li><a class="active" href="/ContributionRank.html">Contribution Ranking</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+ 
+  <table class="countDownContainer">
+    <tr class="info">
+      <td colspan="4">Ranking Update Countdown</td>
+    </tr>
+    <tr class="info">
+      <td id="days">120</td>
+      <td id="hours">4</td>
+      <td id="minutes">12</td>
+      <td id="seconds">22</td>
+    </tr>
+    <tr>
+      <td>Days</td>
+      <td>Hours</td>
+      <td>Minutes</td>
+      <td>Seconds</td>
+    </tr>
+  </table>
+>>>>>>> he275
 </body>
 </html>
