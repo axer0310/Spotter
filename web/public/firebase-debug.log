@@ -39,3 +39,35 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-04-21T18:56:04.479Z] ----------------------------------------------------------------------
+[debug] [2018-04-21T18:56:04.482Z] Command:       c:\Program Files\nodejs\node.exe c:\Users\hexu1\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-04-21T18:56:04.483Z] CLI Version:   3.18.4
+[debug] [2018-04-21T18:56:04.483Z] Platform:      win32
+[debug] [2018-04-21T18:56:04.483Z] Node Version:  v8.11.1
+[debug] [2018-04-21T18:56:04.483Z] Time:          Sat Apr 21 2018 14:56:04 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:56:04.483Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-21T18:56:04.496Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-21T18:56:04.497Z] > authorizing via signed-in user
+[debug] [2018-04-21T18:56:04.499Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 14:56:04 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:56:04.748Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T18:56:04.751Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotter-6ba86/tokens  
+  
+ Sat Apr 21 2018 14:56:04 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:56:05.209Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T18:56:05.211Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 14:56:05 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:56:05.649Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'c:\Purdue\CS252\lab\lab6\Spotter\web'...
+[info] 
+[debug] [2018-04-21T18:56:05.663Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/242336049467/clients/_:getWebAppConfig  
+  
+ Sat Apr 21 2018 14:56:05 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T18:56:05.962Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
