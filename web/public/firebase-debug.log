@@ -1,0 +1,32 @@
+[debug] [2018-04-21T19:06:25.649Z] ----------------------------------------------------------------------
+[debug] [2018-04-21T19:06:25.651Z] Command:       c:\Program Files\nodejs\node.exe c:\Users\hexu1\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-04-21T19:06:25.651Z] CLI Version:   3.18.4
+[debug] [2018-04-21T19:06:25.651Z] Platform:      win32
+[debug] [2018-04-21T19:06:25.651Z] Node Version:  v8.11.1
+[debug] [2018-04-21T19:06:25.652Z] Time:          Sat Apr 21 2018 15:06:25 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T19:06:25.652Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-21T19:06:25.664Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-21T19:06:25.665Z] > authorizing via signed-in user
+[debug] [2018-04-21T19:06:25.667Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 15:06:25 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T19:06:26.067Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T19:06:26.067Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotter-6ba86/tokens  
+  
+ Sat Apr 21 2018 15:06:26 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T19:06:26.367Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-21T19:06:26.368Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spotter-6ba86  
+  
+ Sat Apr 21 2018 15:06:26 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T19:06:26.550Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'c:\Purdue\CS252\lab\lab6\Spotter\web'...
+[info] 
+[debug] [2018-04-21T19:06:26.565Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/242336049467/clients/_:getWebAppConfig  
+  
+ Sat Apr 21 2018 15:06:26 GMT-0400 (Cuba Daylight Time)
+[debug] [2018-04-21T19:06:26.836Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
