@@ -86,7 +86,7 @@ h3 {
     margin: 2px;
 }
 
-.login-sec, .userName-div input {
+.login-sec input {
     display: block;
     border: .5px solid #ccc;
     border-radius: 2px;
@@ -97,7 +97,7 @@ h3 {
     margin-bottom: 5px;
 }
 
-.login-sec, .userName-div button {
+.login-sec button {
     background: #5d8ffc;
     color: #fff;
     border: .5px solic #5d8ffc;
