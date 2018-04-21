@@ -71,6 +71,11 @@ h3 {
     margin:  2px;
 }
 
+#userName_field {
+    float: left;
+    margin: 4px;
+}
+
 #email_field {
     float: left;
     margin: 2px;
@@ -81,18 +86,18 @@ h3 {
     margin: 2px;
 }
 
-.login-sec input {
+.login-sec, .userName-div input {
     display: block;
     border: .5px solid #ccc;
     border-radius: 2px;
     background: #fff;
     padding: 5px;
     outline: none;
-    width: 50%;
+    width: 80%;
     margin-bottom: 5px;
 }
 
-.login-sec button {
+.login-sec, .userName-div button {
     background: #5d8ffc;
     color: #fff;
     border: .5px solic #5d8ffc;

@@ -36,10 +36,17 @@ function signUp() {
 		return console.log('email and password required');
 	}
 
+
 	firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
+
+		window.alert("Error: " = errorMessage);
 	}); 
+
+	window.alert("Please create a username.");
+	var userName = "";
+
 	console.log("signed up with email " + userEmail);
 
 	//check email

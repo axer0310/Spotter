@@ -67,14 +67,25 @@
 			    font-size: 35px;
 			}
 
-      .countDownContainer {
+      .ranking-page {
         position: absolute;
+        float: left; 
+      }
+
+      .countdown {
+        position: relative;
+        top: 50%;
+        float: right;
+        background: #fff;
+      }
+
+      .countDownContainer {
         float: right;
         transform: translateX(-50%) translateY(-50%);
-        text-align: center;
-        background: %ddd;
+        background: #fff;
         border: 1px solid #999;
-        padding: 10px;
+        margin: 5px auto;
+        padding: 15px;
         box-shadow: 0 0 5px 3px #ccc;
       }
 
@@ -97,27 +108,8 @@
   <script type="text/javascript" src="/ContributionRank_countDown.js"></script>
 
 <!-- Ranking -->
+<div class="ranking-page">
 <div class="w3-third w3-container">
-  <table class="countDownContainer">
-    <tr class="info">
-      <td colspan="4">Ranking Update Countdown</td>
-    </tr>
-    <tr class="info">
-      <td id="days">120</td>
-      <td id="hours">4</td>
-      <td id="minutes">12</td>
-      <td id="seconds">22</td>
-    </tr>
-    <tr>
-      <td>Days</td>
-      <td>Hours</td>
-      <td>Minutes</td>
-      <td>Seconds</td>
-    </tr>
-  </table>
-    <script>
-    countdown();
-  </script>
   <h2> </h2>
 
         	<h2 class="w3-center w3-text-black w3-padding-16">RANKING!!</h2>
@@ -149,11 +141,8 @@
 </div>
 
 
-<div class="w3-third">
-    
-      
+<div class="w3-third">    
         <div class="w3-container">
-         
          <h2 class="w3-center w3-text-black w3-padding-16">Contribution Number</h2>
           
           <p class="w3-large"><b><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge"></i>Adele</b></p>
@@ -210,11 +199,35 @@
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:15%">15</div>
           </div>
-          <br>
+          <br>  
+      </div>
+    </div><br>
+</div>
 
-          
-        </div>
-      </div><br>
+    <div class="countdown-div">
+      <table class="countDownContainer">
+        <tr class="info">
+          <td colspan="4">Next Ranking Update:</td>
+        </tr>
+          <tr class="info">
+            <td id="days">120</td>
+            <td id="hours">4</td>
+            <td id="minutes">12</td>
+            <td id="seconds">22</td>
+          </tr>
+          <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+          </tr>
+        </table>
+        <script>
+          countdown();  
+        </script>
+    </div>
+  
+  
 
     <!-- End Ranking -->
 
@@ -234,10 +247,6 @@
         } else {
             li[i].style.display = "none";
             num = num+1;
-            
-           
-
-
         }
     }
     if(num == li.length){
@@ -245,10 +254,6 @@
     }
 	}
     
-    
-    
-    
-
 	function ShowRank() {
     var user= "sdf";
     var contribution = 0;
