@@ -23,6 +23,7 @@ function countdown() {
   document.getElementById("days").innerText = d;
   document.getElementById("hours").textContent = h;
   document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").textContent = m;
   document.getElementById("seconds").textContent = s;
 
   if(remTime <= 0){
