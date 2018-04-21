@@ -71,11 +71,12 @@
                 if(firebaseUser) {
                     userId = firebaseUser.email;
                     console.log("logged in");
-                    setLocation(parseFloat(latitude),parseFloat(longitude),parseFloat(uploadTime), userId);
+                    
                 } else {
                     console.log('not logged in');
                     userId = none;
                 }
+                    setLocation(parseFloat(latitude),parseFloat(longitude),parseFloat(uploadTime), userId);
              });
 
                 x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
