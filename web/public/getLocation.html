@@ -70,7 +70,6 @@
                 firebase.auth().onAuthStateChanged(firebaseUser => {
                 if(firebaseUser) {
                     userId = firebaseUser.email;
-                    console.log(firebaseUser);
                     console.log("logged in");
                 } else {
                     console.log('not logged in');
