@@ -69,8 +69,7 @@
 			}
 
       .countDownContainer {
-        position: relative;
-        top: 90%;
+        position: absolute;
         float: right;
         transform: translateX(-50%) translateY(-50%);
         text-align: center;
@@ -96,7 +95,11 @@
 	</ul>
     <button onclick="getUserId();"></button>
 
-    <table class="countDownContainer">
+  <script type="text/javascript" src="/ContributionRank_countDown.js"></script>
+
+<!-- Ranking -->
+<div class="w3-third w3-container">
+  <table class="countDownContainer">
     <tr class="info">
       <td colspan="4">Ranking Update Countdown</td>
     </tr>
@@ -113,8 +116,9 @@
       <td>Seconds</td>
     </tr>
   </table>
-<!-- Ranking -->
-<div class="w3-third w3-container">
+    <script>
+    countdown();
+  </script>
   <h2> </h2>
 
         	<h2 class="w3-center w3-text-black w3-padding-16">RANKING!!</h2>
