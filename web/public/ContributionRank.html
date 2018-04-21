@@ -5,7 +5,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
@@ -68,14 +67,25 @@
 			    font-size: 35px;
 			}
 
-      .countDownContainer {
+      .ranking-page {
         position: absolute;
+        float: left; 
+      }
+
+      .countdown {
+        position: relative;
+        top: 50%;
+        float: right;
+        background: #fff;
+      }
+
+      .countDownContainer {
         float: right;
         transform: translateX(-50%) translateY(-50%);
-        text-align: center;
-        background: %ddd;
+        background: #fff;
         border: 1px solid #999;
-        padding: 10px;
+        margin: 5px auto;
+        padding: 15px;
         box-shadow: 0 0 5px 3px #ccc;
       }
 
@@ -93,13 +103,12 @@
 		<li><a class="active" href="/ContributionRank.html">Contribution Ranking</a></li>
 		<li><a href="/about.html">About</a></li>
 	</ul>
-    <button onclick="getUserId();"></button>
 
-  <script type="text/javascript" src="/ContributionRank_countDown.js"></script>
-
-<!-- Ranking -->
-<div class="w3-third w3-container">
-  <table class="countDownContainer">
+    <button onclick="getUserId();">getUserId</button>
+    <button onclick="setHTML();">sethtml</button>
+    
+    
+    <table class="countDownContainer">
     <tr class="info">
       <td colspan="4">Ranking Update Countdown</td>
     </tr>
@@ -116,9 +125,10 @@
       <td>Seconds</td>
     </tr>
   </table>
-    <script>
-    countdown();
-  </script>
+
+<!-- Ranking -->
+<div class="ranking-page">
+<div class="w3-third w3-container">
   <h2> </h2>
 
         	<h2 class="w3-center w3-text-black w3-padding-16">RANKING!!</h2>
@@ -127,34 +137,31 @@
         	<input type="text" id="inputbox" onkeyup="Searchbyname()"placeholder="Search your Ranking..">
          
         	<ul id="Rankinglist">
-  			<li><a href="#"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge material-icons">1</i>Adele</a></li>
+  			<li><a href="#" id="ranking1"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge material-icons" >1</i>Adele</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">2</i>Agnes</a></li>
+  			<li><a href="#" id="ranking2"><i class="fa fa-fw w3-margin-right w3-xxlarge">2</i>Agnes</a></li>
 
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">3</i>Jack</a></li>
+  			<li><a href="#" id="ranking3"><i class="fa fa-fw w3-margin-right w3-xxlarge">3</i>Jack</a></li>
  			
- 		    <li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">4</i>Doris</a></li>
+ 		    <li><a href="#" id="ranking4"><i class="fa fa-fw w3-margin-right w3-xxlarge">4</i>Doris</a></li>
 
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">4</i>Calvin</a></li>
+  			<li><a href="#" id="ranking5"><i class="fa fa-fw w3-margin-right w3-xxlarge">5</i>Calvin</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">6</i>Christina</a></li>
+  			<li><a href="#" id="ranking6"><i class="fa fa-fw w3-margin-right w3-xxlarge">6</i>Christina</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">6</i>Cindy</a></li>
+  			<li><a href="#" id="ranking7"><i class="fa fa-fw w3-margin-right w3-xxlarge">7</i>Cindy</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">8</i>Amber</a></li>
+  			<li><a href="#" id="ranking8"><i class="fa fa-fw w3-margin-right w3-xxlarge">8</i>Amber</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">8</i>Mike</a></li>
+  			<li><a href="#" id="ranking9"><i class="fa fa-fw w3-margin-right w3-xxlarge">9</i>Mike</a></li>
   
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">10</i>Joe</a></li>
+  			<li><a href="#" id="ranking10"><i class="fa fa-fw w3-margin-right w3-xxlarge">10</i>Joe</a></li>
 			</ul>
 </div>
 
 
-<div class="w3-third">
-    
-      
+<div class="w3-third">    
         <div class="w3-container">
-         
          <h2 class="w3-center w3-text-black w3-padding-16">Contribution Number</h2>
           
           <p class="w3-large"><b><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge"></i>Adele</b></p>
@@ -211,11 +218,37 @@
           <div class="w3-light-grey w3-round-xlarge w3-small">
             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:15%">15</div>
           </div>
-          <br>
+          <br>  
+      </div>
+    </div><br>
+</div>
 
-          
-        </div>
-      </div><br>
+<!--
+    <div class="countdown-div">
+      <table class="countDownContainer">
+        <tr class="info">
+          <td colspan="4">Next Ranking Update:</td>
+        </tr>
+          <tr class="info">
+            <td id="days">120</td>
+            <td id="hours">4</td>
+            <td id="minutes">12</td>
+            <td id="seconds">22</td>
+          </tr>
+          <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+          </tr>
+        </table>
+        <script>
+          countdown();  
+        </script>
+    </div>
+-->
+  
+  
 
     <!-- End Ranking -->
 
