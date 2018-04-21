@@ -37,12 +37,10 @@ function getUserId()
                 }
             );
 }
-function sortNumber(a,b) {
-   return a - b;
-}
+
 function setHTML()
 {
-    
+    //From https://stackoverflow.com/questions/25500316/sort-a-dictionary-by-value-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
     var items = Object.keys(data).map(function(key) {
     return [key, data[key]];
     });
@@ -54,8 +52,12 @@ function setHTML()
 
     // Create a new array with only the first 5 items
     console.log(items.slice(0, 5));
-
+    //==========================================
     
+    
+    
+    
+    //Ranking
     for(var i = 0; i< 10;i++)
     {
         if(i == 0)
@@ -67,10 +69,49 @@ function setHTML()
         }
         else
         {
-            if( typeof(items[i][0]) != undefined )
+            if( i < items.length)
             {
-                  document.getElementById("ranking" + i).innerHTML = "<i class=\"fa fa-fw w3-margin-right w3-xxlarge\">" + i+1 + "</i>" + items[i][0];    
+                  document.getElementById("ranking" + (i+1).toString() ).innerHTML = "<i class=\"fa fa-fw w3-margin-right w3-xxlarge\">" + (i+1).toString() + "</i>" + items[i][0];    
             }
+            else
+            {
+                document.getElementById("ranking" + (i+1).toString() ).innerHTML = "<i class=\"fa fa-fw w3-margin-right w3-xxlarge\">" + (i+1).toString() + "</i>" + "None";    
+            }
+        }
+    }
+    
+    
+    //Contribution
+    for(var i = 0; i< 10;i++)
+    {
+        if(i == 0)
+        {
+            if(typeof(items[i][0]) != 'undefined')
+            {
+                var width = parseFloat((parseInt(items[i][1]) / items.length) *100).toString();
+                document.getElementById("contribution1Name").innerHTML = "<b><i class=\"fa fa-certificate fa-fw w3-margin-right w3-xxlarge\"></i>" + items[0][0] + "</b>";
+                document.getElementById("contribution1Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + "<div class=\"w3-center w3-text-white\" >" + items[0][1] + "</div></div>";
+            }
+        }
+        else
+        {
+            if( i<items.length )
+            {
+                
+                var width = parseFloat((parseInt(items[i][1]) / items.length) *100).toString();
+                document.getElementById("contribution" + i+1 + "Name").innerHTML = items[i][0];
+                
+                document.getElementById("contribution" + i+1 + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + items[i][1] + "</div>";
+                
+            }
+            else
+            {
+                var width = 0;
+                document.getElementById("contribution" + (i+1).toString() + "Name").innerHTML = "None";
+                document.getElementById("contribution" + (i+1).toString() + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + 0 + "</div>";
+                   
+            }
+            
         }
     }
 }
