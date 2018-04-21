@@ -7,184 +7,23 @@
     
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<!--    <script src="markerclusterer.js"></script>-->
-    
-    <script>
-        var config = {
-            apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
-            authDomain: "spotter-6ba86.firebaseapp.com",
-            databaseURL: "https://spotter-6ba86.firebaseio.com",
-            projectId: "spotter-6ba86",
-            storageBucket: "spotter-6ba86.appspot.com",
-            messagingSenderId: "242336049467"
-          };
-        firebase.initializeApp(config);
-        var database = firebase.database();
-        var data = {};
-        var markers = {};
-        var timer;
-        var timeRange=7200000;
-        var map;
-        
-        function initAutocomplete() 
-        {
-            getAllData();
-            map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 13,
-                    center: {lat: 40.425, lng: -86.929},
-                    mapTypeId: 'roadmap'
-                });
-
-            var input = document.getElementById('pac-input');
-            var timeRange = document.getElementById('time');
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
-            var autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.bindTo('bounds', map);
-
-            autocomplete.addListener('place_changed', function() {
-                
-                var place = autocomplete.getPlace();
-                 if (!place.geometry) 
-                 {
-                    // User entered the name of a Place that was not suggested and
-                    // pressed the Enter key, or the Place Details request failed.
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                 }
-
-                // If the place has a geometry, then present it on a map.
-                if (place.geometry.viewport) 
-                {
-                    map.fitBounds(place.geometry.viewport);
-                }
-                else
-                {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(15);  // Why 17? Because it looks good.
-                }
-                
-                var placeMarker =  new google.maps.Marker({
-                position: place.geometry.location,
-                map: map,
-                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-            });    
-            });
-//            
-        }
-        function removeAllMarkers()
-        {
-            for (var i in markers)
-            {
-                markers[i].setMap(null);            
-            }
-        }
-        function setTimeRange(time)
-        {
-            switch (time)
-            {
-                case 2:
-                    document.getElementById("timeRange1hr").checked = false;
-                    document.getElementById("timeRangeHalf").checked = false;
-                    break;
-                case 1:
-                    document.getElementById("timeRange2hr").checked = false;
-                    document.getElementById("timeRangeHalf").checked = false;
-                    break;
-                case 0.5:
-                    document.getElementById("timeRange1hr").checked = false;
-                    document.getElementById("timeRange2hr").checked = false;
-                    break;
-                default:
-                    break;
-            }
-            
-            timeRange = time*3600000;
-            addAnnotation();
-        }
-        function addAnnotation()
-        {
-            var marker;
-            var count = 0;
-            var date = new Date();
-            var n = date.getTime();
-
-            removeAllMarkers();     // reinitialize map
-            
-            
-            for (var i in data)
-            {
-                
-                if(parseInt(data[i]["UploadTime"]) > n-timeRange)
-                {
-                    markers[count] = new google.maps.Marker({
-                        position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
-                        map: map
-                    });       
-                }
-                count++;
-            }
-            var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-                                                                  });
-      
-        }
-
-        function getData(id, path)
-        {
-              firebase.database().ref(path).once('value').then(
-                    function(snapshot)
-                    {
-                         document.getElementById(id).innerHTML += (snapshot.val()); 
-                    }
-                );
-        }
-        function getAllData()
-        {
-            firebase.database().ref('/').once('value', 
-                function(snapshot) 
-                {
-                    snapshot.forEach(
-                        function(childSnapshot) 
-                        {
-                            var record = childSnapshot.key
-                            var buff = {};
-                            childSnapshot.forEach(
-                                function(childSnapshot)
-                                {
-                                    var key = childSnapshot.key;
-                                    var val = childSnapshot.val();
-                                    buff[key] = val;
-    //                                        window.alert(key + ' : ' + val);    
-                                }
-                            );
-
-                            data[record] = buff;
-                        }
-                    );
-                    addAnnotation();
-                    timer = setTimeout(getAllData, 5000);
-                }
-            );
-            
-        }
-        function closing()
-        {
-            console.log("closing");
-            firebase.app().delete();
-            clearTimeout(timer);
-        }
-    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="242336049467-sn1iiiij07bi0mp7ptogfpabr72metqn.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+    <script src="index.js"></script>
     <script src="login.js"></script>
     <script async defer 
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSrts5bW5PA9cFy9McRvFwfraVkwMeaT4&libraries=places&callback=initAutocomplete">
     </script>
-	
 </head>
 <body onunload="closing()">
     
 	<h1>Let's Park!</h1>
+    <button onclick="debugMode()">debug</button>
 	<ul>
 		<li><a class="active" href="/">Home</a></li>
 		<li><a href="/getLocation.html">Contribute</a></li>
@@ -198,16 +37,18 @@
   
     <div id="login_div" class="login-sec">
         <h3>Save Your Contribution</h3>
-        <input type="email" placeholder="Email..." id="email_field" />
-        <input type="password" placeholder="Password..." id="password_field" />
-        <button onclick="login()" id="login-butd">Log In</button>
+        <input type="email" placeholder="Email..." id="email_field" >
+        <input type="password" placeholder="Password..." id="password_field" >
+        <button onclick="login()" id="login-btn">Log In</button>
         <button onclick="signUp()" >Sign Up</button>
     </div>
-
+    
     <div id="user_div" class="loggedin-div">
         <h3>Welcome to Spotter</h3>
         <p id="user_p">You're currently logged in.</p>
         <button onclick="logout()">Log Out</button>
+    </div>
+    <div class="hide">
     </div>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
@@ -219,6 +60,8 @@
     <input id="timeRangeHalf" type="radio" onclick=setTimeRange(0.5)>
         <label style="color: #ffffff">0.5 Hour</label>
     </div>
+    <table id="markerTable"></table>
+    <button id="closeTable" onclick="closeTable();">Close Table</button>
     <div id="map"></div>
 
 

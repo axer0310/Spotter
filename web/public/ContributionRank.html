@@ -3,11 +3,23 @@
 <head>
 	<title>Spotter-ContributionRank</title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+        <script>
+            var config = 
+              {
+                apiKey: "AIzaSyBD8z7IEJtKXhRQAe37Piad7moHD1JBBCY",
+                authDomain: "spotter-6ba86.firebaseapp.com",
+                databaseURL: "https://spotter-6ba86.firebaseio.com",
+                projectId: "spotter-6ba86",
+                storageBucket: "spotter-6ba86.appspot.com",
+                messagingSenderId: "242336049467"
+              };
+            firebase.initializeApp(config);
+            var database = firebase.database();
+    </script>
 	<style>
 		body {
 			background: #fff;
@@ -52,21 +64,6 @@
 			    font-size: 35px;
 			}
 
-			
-
-		::placeholder {
-    			color: grey;
-    			opacity: 1; /* Firefox */
-		}
-
-		:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   				color: grey;
-		}
-
-		::-ms-input-placeholder { /* Microsoft Edge */
-   				color: grey;
-		}
-
 	</style>
 
 </head>
@@ -78,153 +75,10 @@
 		<li><a class="active" href="/ContributionRank.html">Contribution Ranking</a></li>
 		<li><a href="/about.html">About</a></li>
 	</ul>
-<!-- Ranking -->
-<div class="w3-third w3-container">
-  <h2> </h2>
 
-        	<h2 class="w3-center w3-text-black w3-padding-16">RANKING!!</h2>
-        	
-        	 <!-- SEARCH BOX -->
-        	<input type="text" id="inputbox" onkeyup="Searchbyname()"placeholder="Search your Ranking..">
-         
-        	<ul id="Rankinglist">
-  			<li><a href="#"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge material-icons">1</i>Adele</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">2</i>Agnes</a></li>
-
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">3</i>Jack</a></li>
- 			
- 		    <li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">4</i>Doris</a></li>
-
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">4</i>Calvin</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">6</i>Christina</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">6</i>Cindy</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">8</i>Amber</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">8</i>Mike</a></li>
-  
-  			<li><a href="#"><i class="fa fa-fw w3-margin-right w3-xxlarge">10</i>Joe</a></li>
-			</ul>
-</div>
-
-
-<div class="w3-third">
-    
-      
-        <div class="w3-container">
-         
-         <h2 class="w3-center w3-text-black w3-padding-16">Contribution Number</h2>
-          
-          <p class="w3-large"><b><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge"></i>Adele</b></p>
-         <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:95%">
-              <div class="w3-center w3-text-white">95</div>
-            </div>
-          </div>
-          
-          <p>Agnes</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-              <div class="w3-center w3-text-white">80</div>
-            </div>
-          </div>
-         
-          <p>Jack</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75</div>
-          </div>
-         
-          <p>Doris</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50</div>
-          </div>
-          
-          <p>Calvin</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50</div>
-          </div>
-          
-          <p id = "Christina">Christina</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:30%">30</div>
-          </div>
-          
-         
-          <p>Cindy</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:30%">30</div>
-          </div>
-
-          <p>Amber</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:20%">20</div>
-          </div>
-
-          <p>Mike</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:20%">20</div>
-          </div>
-
-          <p>Joe</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:15%">15</div>
-          </div>
-          <br>
-
-          
-        </div>
-      </div><br>
-
-    <!-- End Ranking -->
-    </div>
-
-    <!-- function for searching Ranking -->
-<script> 
-	function Searchbyname(){
-		var input, filter, ul, li, a, i,num;
-		num = 0;
-    input = document.getElementById("inputbox");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("Rankinglist");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-            num = num+1;
-            
-           
-
-
-        }
-    }
-    if(num == li.length){
-    	ShowRank();
-    }
-	}
-
-	function ShowRank() {
-    var user= "sdf";
-    var contribution = 0;
-    if (user != "") {
-    	if(contribution != 0){
-        alert("Hi! " + user + " your contribution is " + contribution + "!");
-    	}else{
-    		alert("Your have No Contribution yet!");
-    	}
-    } else{
-    	alert("Your haven't sign in");
-    }
-}
-
-</script> 	
-
-          
-
+	<script>
+		
+		
+	</script>
 </body>
 </html>
