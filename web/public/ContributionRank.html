@@ -3,7 +3,7 @@
 <head>
 	<title>Spotter-ContributionRank</title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
@@ -49,7 +49,8 @@
 			    display: block;
 			    color: #f2f2f2;
 			    text-align: center;
-			    padding: 14px 16px;
+			    padding: 13px 16px;
+          margin: 0px;
 			    font-size: 17px;
 			    text-decoration: none;
 			}
@@ -65,11 +66,20 @@
 			h1 {
 				  text-align: center;
 			    font-size: 35px;
+          margin: 21px ; 
+          font-family:'Nunito';
+          font-style: normal;
+          font-weight: 700;
 			}
+
+      h2 {
+         font-family:'Nunito';
+      }
 
       .ranking-page {
         position: absolute;
         float: left; 
+
       }
 
       .countdown {
@@ -104,34 +114,12 @@
 		<li><a href="/about.html">About</a></li>
 	</ul>
 
-    <button onclick="getUserId();">getUserId</button>
-    <button onclick="setHTML();">sethtml</button>
-    
-    
-    <table class="countDownContainer">
-    <tr class="info">
-      <td colspan="4">Ranking Update Countdown</td>
-    </tr>
-    <tr class="info">
-      <td id="days">120</td>
-      <td id="hours">4</td>
-      <td id="minutes">12</td>
-      <td id="seconds">22</td>
-    </tr>
-    <tr>
-      <td>Days</td>
-      <td>Hours</td>
-      <td>Minutes</td>
-      <td>Seconds</td>
-    </tr>
-  </table>
-
 <!-- Ranking -->
 <div class="ranking-page">
 <div class="w3-third w3-container">
   <h2> </h2>
 
-        	<h2 class="w3-center w3-text-black w3-padding-16">RANKING!!</h2>
+        	<h2 class="w3-center w3-text-black w3-padding-16">Ranking List</h2>
         	
         	 <!-- SEARCH BOX -->
         	<input type="text" id="inputbox" onkeyup="Searchbyname()"placeholder="Search your Ranking..">
@@ -162,7 +150,7 @@
 
 <div class="w3-third">    
         <div class="w3-container">
-         <h2 class="w3-center w3-text-black w3-padding-16">Contribution Number</h2>
+         <h2 class="w3-center w3-text-black w3-padding-16">Contribution List</h2>
           
           <p class="w3-large" id="contribution1Name"><b><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge"></i>Adele</b></p>
          <div class="w3-light-grey w3-round-xlarge w3-small" id="contribution1Num">
@@ -223,17 +211,16 @@
     </div><br>
 </div>
 
-<!--
     <div class="countdown-div">
       <table class="countDownContainer">
         <tr class="info">
           <td colspan="4">Next Ranking Update:</td>
         </tr>
           <tr class="info">
-            <td id="days">120</td>
-            <td id="hours">4</td>
-            <td id="minutes">12</td>
-            <td id="seconds">22</td>
+            <td id="days"></td>
+            <td id="hours"></td>
+            <td id="minutes"></td>
+            <td id="seconds"></td>
           </tr>
           <tr>
             <td>Days</td>
@@ -246,9 +233,6 @@
           countdown();  
         </script>
     </div>
--->
-  
-  
 
     <!-- End Ranking -->
 
