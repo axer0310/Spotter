@@ -54,17 +54,19 @@ h3 {
     font-size: 14px;
 }
 
-.login-sec, .loggedin-div {
+.login-sec {
     display: block;
     float: right;
     top: 12%;
     width: 25%;
 }
 
-.hide {
-    display: none;
+.loggedin-div {
+    display: block;
+    float: right;
+    top: 12%;
+    width: 25%;
 }
-
 
 #login-butd {
     position: relative;
