@@ -44,9 +44,6 @@ function signUp() {
 		window.alert("Error: " = errorMessage);
 	}); 
 
-	window.alert("Please create a username.");
-	var userName = "";
-
 	console.log("signed up with email " + userEmail);
 
 	//check email

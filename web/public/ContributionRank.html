@@ -82,28 +82,38 @@
 
       }
 
-      .countdown {
+      h3 {
         position: relative;
-        top: 50%;
-        float: right;
-        background: #fff;
+        top: 50px;
+        left: 75%;
+        font-family: 'Nunito';
+        font-size: 25px;
+        font-weight: 600;
       }
 
       .countDownContainer {
+        position: absolute;
         float: right;
+        top: 260px;
+        left: 85%;
         transform: translateX(-50%) translateY(-50%);
         background: #fff;
         border: 1px solid #999;
-        margin: 5px auto;
+        margin: 10px auto;
         padding: 15px;
         box-shadow: 0 0 5px 3px #ccc;
+        font-family:'Nunito';
+        font-size: 18px;
       }
 
       .info {
+        font-family: 'Nunito';
         font-size: 20px;
+        padding: 10px;
       }
+
 	</style>
-    <script src="/ContributionRank.js"></script>
+    <script src="ContributionRank.js"></script>
 </head>
 <body>
 	<h1>Let's Park!</h1>
@@ -113,6 +123,29 @@
 		<li><a class="active" href="/ContributionRank.html">Contribution Ranking</a></li>
 		<li><a href="/about.html">About</a></li>
 	</ul>
+
+  <!-- countdown -->
+    <div class="countdown-div">
+      <h3>Next Rank Update:</h3>
+      <table class="countDownContainer">
+          <tr class="info">
+            <td id="days"></td>
+            <td id="hours"></td>
+            <td id="minutes"></td>
+            <td id="seconds"></td>
+          </tr>
+          <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+          </tr>
+        </table>
+       <script src="ContributionRank_countDown.js"></script>
+       <script>
+         countdown();
+       </script>
+    </div>
 
 <!-- Ranking -->
 <div class="ranking-page">
@@ -210,29 +243,6 @@
       </div>
     </div><br>
 </div>
-
-    <div class="countdown-div">
-      <table class="countDownContainer">
-        <tr class="info">
-          <td colspan="4">Next Ranking Update:</td>
-        </tr>
-          <tr class="info">
-            <td id="days"></td>
-            <td id="hours"></td>
-            <td id="minutes"></td>
-            <td id="seconds"></td>
-          </tr>
-          <tr>
-            <td>Days</td>
-            <td>Hours</td>
-            <td>Minutes</td>
-            <td>Seconds</td>
-          </tr>
-        </table>
-        <script>
-          countdown();  
-        </script>
-    </div>
 
     <!-- End Ranking -->
 
