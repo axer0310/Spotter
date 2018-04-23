@@ -156,7 +156,8 @@
         	<h2 class="w3-center w3-text-black w3-padding-16">Ranking List</h2>
         	
         	 <!-- SEARCH BOX -->
-        	<input type="text" id="inputbox" onkeyup="Searchbyname()"placeholder="Search your Ranking..">
+        	<input type="text" id="inputbox" placeholder="Search your Ranking..">
+            <button onclick="Searchbyname()">Search</button>
          
         	<ul id="Rankinglist">
   			<li><a href="#" id="ranking1"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge material-icons" >1</i>Adele</a></li>
@@ -247,44 +248,7 @@
 
     <!-- End Ranking -->
 
-    <!-- function for searching Ranking -->
-<script> 
-	function Searchbyname(){
-		var input, filter, ul, li, a, i,num;
-		num = 0;
-    input = document.getElementById("inputbox");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("Rankinglist");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-            num = num+1;
-        }
-    }
-    if(num == li.length){
-    	ShowRank();
-    }
-	}
-    
-	function ShowRank() {
-    var user= "sdf";
-    var contribution = 0;
-    if (user != "") {
-    	if(contribution != 0){
-        alert("Hi! " + user + " your contribution is " + contribution + "!");
-    	}else{
-    		alert("Your have No Contribution yet!");
-    	}
-    } else{
-    	alert("Your haven't sign in");
-    }
-}
-
-</script> 	
+    <!-- function for searching Ranking --> 	
  
 </body>
 </html>

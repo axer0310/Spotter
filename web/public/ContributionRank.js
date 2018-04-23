@@ -122,3 +122,53 @@ function setHTML()
     }
 }
 
+function Searchbyname()
+{
+    var input, filter, ul, li, a, i,num;
+    num = 0;
+    input = document.getElementById("inputbox");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("Rankinglist");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) 
+    {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) 
+        {
+            li[i].style.display = "";
+        }
+        else 
+        {
+            li[i].style.display = "none";
+            num = num+1;
+        }
+    }
+    if(num == li.length)
+    {
+       ShowRank();
+    }
+}
+
+function ShowRank() 
+{
+    var user= "sdf";
+    var contribution = 0;
+    if (user != "") 
+    {
+       if(contribution != 0)
+       {
+           alert("Hi! " + user + " your contribution is " + contribution + "!");
+       }
+        else
+        {
+          alert("Your have No Contribution yet!");
+            document.getElementById("inputbox").value= "";
+            Searchbyname();
+       }
+    }
+    else
+    {
+       alert("Your haven't sign in");
+    }
+}
+
