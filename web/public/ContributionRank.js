@@ -99,9 +99,9 @@ function setHTML()
             {
                 
                 var width = parseFloat((parseInt(items[i][1]) / items.length) *100).toString();
-                document.getElementById("contribution" + i+1 + "Name").innerHTML = items[i][0];
+                document.getElementById("contribution" + (i+1).toString()  + "Name").innerHTML = items[i][0];
                 
-                document.getElementById("contribution" + i+1 + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + items[i][1] + "</div>";
+                document.getElementById("contribution" + (i+1).toString() + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + items[i][1] + "</div>";
                 
             }
             else
