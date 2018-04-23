@@ -1,13 +1,13 @@
-firebase.auth().onAuthStateChanged(firebaseUser => {
-		if(firebaseUser) {
-			document.getElementById("login_div").style.display = "none";
-			document.getElementById("user_div").style.display = "block";
-			console.log("logged in");
-		} else {
-			console.log('not logged in');
-			document.getElementById("login_div").style.display = "block";
-			document.getElementById("user_div").style.display = "none";
-		}
+firebase.auth().onAuthStateChanged(function(user) {
+if(user) {
+	document.getElementById("login_div").style.display = "none";
+	document.getElementById("user_div").style.display = "block";
+	console.log("logged in");
+} else {
+	console.log('not logged in');
+	document.getElementById("login_div").style.display = "block";
+	document.getElementById("user_div").style.display = "none";
+}
 });
 
 function login() {
@@ -41,11 +41,8 @@ function signUp() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 
-		window.alert("Error: " = errorMessage);
+		window.alert("Error: " + errorMessage);
 	}); 
-
-	window.alert("Please create a username.");
-	var userName = "";
 
 	console.log("signed up with email " + userEmail);
 

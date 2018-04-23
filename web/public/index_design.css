@@ -33,11 +33,11 @@ li a:hover:not(.active) {
 }
 
 .active {
-	background-color: #4d94ff;
+    background-color: #4d94ff;
 }
 
 h1 {
-	text-align: center;
+    text-align: center;
     font-size: 35px;
 }
 
@@ -54,17 +54,19 @@ h3 {
     font-size: 14px;
 }
 
-.login-sec, .loggedin-div {
+.login-sec {
     display: block;
     float: right;
     top: 12%;
     width: 25%;
 }
 
-.hide {
-    display: none;
+.loggedin-div {
+    display: block;
+    float: right;
+    top: 12%;
+    width: 25%;
 }
-
 
 #login-butd {
     position: relative;
@@ -93,7 +95,7 @@ h3 {
     background: #fff;
     padding: 5px;
     outline: none;
-    width: 80%;
+    width: 50%;
     margin-bottom: 5px;
 }
 
@@ -148,22 +150,22 @@ h3 {
 }
 
 p.ex1 {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 p.ex2 {
-	font-size: 15px;
+    font-size: 15px;
 }
 
 #map {
     display: block;
-	position: relative;
+    position: relative;
     float: center;
     top: 30%;
-	width: 80%;
-	height: 500px;
+    width: 80%;
+    height: 500px;
     margin: 100px auto;
-	background-color: grey;
+    background-color: grey;
     border: 1px;
     border-color: #333;
     border-width: 1.5px;
@@ -172,7 +174,7 @@ table {
    border-collapse: collapse;
 }
 table tr, th, td{
-/*	float: center;*/
+/*  float: center;*/
     border: 1px solid black;
     background-color: white;
     opacity: 0.9;
@@ -194,10 +196,10 @@ tr:hover {
 }
 
 #destination {
-	float: left;
-	width: 40%;
-	height: 100px;
-	font-size: 10px;
+    float: left;
+    width: 40%;
+    height: 100px;
+    font-size: 10px;
 }
 
 #pac-input {

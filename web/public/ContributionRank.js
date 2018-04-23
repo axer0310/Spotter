@@ -1,7 +1,12 @@
 var database = firebase.database();
 var data = {};
+function getRanking()
+{
+    getUserId();
+}
 function getUserId()
 {
+    data = {};//clear database
     firebase.database().ref('/').once('value', 
                 function(snapshot) 
                 {
@@ -25,13 +30,14 @@ function getUserId()
                                             }
                                             else
                                             {
-                                                data[val] = 0;
+                                                data[val] = 1;
                                             }    
                                         }
                                         
                                     }
                                 }
                             );
+                            setHTML();
                         }
                     );
                 }
