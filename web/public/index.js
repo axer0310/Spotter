@@ -141,14 +141,14 @@
             for (var i in data)
             {
                 
-                if(parseInt(data[i]["UploadTime"]) > n-timeRange)
-                {
+//                if(parseInt(data[i]["UploadTime"]) > n-timeRange)
+//                {
                     markers[count] = new google.maps.Marker({
                         position: {lat: data[i]["Latitude"], lng: data[i]["Longitude"]},
                         map: map
                     });     
                     tableHtml = setTable(count, data[i]["UploadTime"], tableHtml);
-                }
+//                }
                 count++;
             }
             var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
