@@ -90,7 +90,7 @@ function setHTML()
     
     
     //Contribution
-    for(var i = 0; i< items.length;i++)
+    for(var i = 0; i< 10;i++)
     {
         if(i == 0)
         {
@@ -99,7 +99,7 @@ function setHTML()
                 var width = parseFloat((parseInt(items[i][1]) / items.length) *100).toString();
                 document.getElementById("contribution1Name").innerHTML = "<b><i class=\"fa fa-certificate fa-fw w3-margin-right w3-xxlarge\"></i>" + items[0][0] + "</b>";
                 document.getElementById("contribution1Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\">" + "<div class=\"w3-center w3-text-white\" >" + items[0][1] + "</div></div>";
-                 document.getElementById("contribution1Num").style.display = "none";
+//                 document.getElementById("contribution1Num").style.display = "none";
             }
         }
         else
@@ -116,10 +116,11 @@ function setHTML()
             else
             {
                 var width = 0;
-              //  document.getElementById("contribution" + (i+1).toString() + "Name").innerHTML = "None";
-                document.getElementById("contribution" + (i+1).toString() + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\" display=\"none\">" + 0 + "</div>";
-                document.getElementById("contribution" + (i+1).toString() + "Name").style.display = "none";
-                   
+                document.getElementById("contribution" + (i+1).toString() + "Name").innerHTML = "";
+                document.getElementById("contribution" + (i+1).toString() + "Num").innerHTML = "";
+//                document.getElementById("contribution" + (i+1).toString() + "Num").innerHTML = "<div class=\"w3-container w3-center w3-round-xlarge w3-teal\" style=\"width:" + width +"%\" display=\"none\">" + 0 + "</div>";
+//                document.getElementById("contribution" + (i+1).toString() + "Name").style.display = "none";
+//                   
             }
             
         }
