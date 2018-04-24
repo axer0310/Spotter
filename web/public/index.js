@@ -54,11 +54,11 @@
                 });
 
             var input = document.getElementById('pac-input');
-            var timeRange = document.getElementById('time');
+//            var timeRange = document.getElementById('time');
             var table = document.getElementById("markerTable");
             var closeTable = document.getElementById("closeTable");
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
+//            map.controls[google.maps.ControlPosition.TOP_LEFT].push(timeRange);
             map.controls[google.maps.ControlPosition.TOP_LEFT].push(closeTable);
             map.controls[google.maps.ControlPosition.RIGHT_TOP].push(table);
             var autocomplete = new google.maps.places.Autocomplete(input);
