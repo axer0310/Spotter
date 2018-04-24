@@ -88,7 +88,7 @@ function setHTML()
     
     
     //Contribution
-    for(var i = 0; i< 10;i++)
+    for(var i = 0; i< items.length;i++)
     {
         if(i == 0)
         {
